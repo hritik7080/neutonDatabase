@@ -1,0 +1,78 @@
+{
+  "selfId": "ML970",
+  "title": "Machine Leanring",
+  "desc": "sjdhfhsdh fhskdh fkjshndf uhsduh fosdh ufh sedhof oisdh oifhsodh foishdoihfoihdoifhodihfo dhgo u0oijoif ojf9 uoifjoi onfiuhonj foihoefou fhiuwhshiuehfhuwehfnsd ojf oi oewjf oi8we",
+  "nodes": [
+    {
+      "selfId": "ML9708374",
+      "title": "Learn a Programming language",
+      "desc": "sjdhfhsdh fhskdh fkjshndf uhsduh fosdh ufh sedhof oisdh oifhsodh foishdoihfoihdoifhodihfo dhgo u0oijoif ojf9 uoifjoi onfiuhonj foihoefou fhiuwhshiuehfhuwehfnsd ojf oi oewjf oi8we",
+      "nodes": [
+        {
+          "selfId": "ML970543",
+          "title": "Learn Python",
+          "desc": "sjdhfhsdh fhskdh fkjshndf uhsduh fosdh ufh sedhof oisdh oifhsodh foishdoihfoihdoifhodihfo dhgo u0oijoif ojf9 uoifjoi onfiuhonj foihoefou fhiuwhshiuehfhuwehfnsd ojf oi oewjf oi8we",
+          "nodes": []
+        }
+      ]
+    },
+    {
+      "selfId": "ML9702008",
+      "title": "Learn Algebra",
+      "desc": "sjdhfhsdh fhskdh fkjshndf uhsduh fosdh ufh sedhof oisdh oifhsodh foishdoihfoihdoifhodihfo dhgo u0oijoif ojf9 uoifjoi onfiuhonj foihoefou fhiuwhshiuehfhuwehfnsd ojf oi oewjf oi8we",
+      "nodes": [
+        {
+          "selfId": "ML9704707",
+          "title": "Learn Basic matrix",
+          "desc": "sjdhfhsdh fhskdh fkjshndf uhsduh fosdh ufh sedhof oisdh oifhsodh foishdoihfoihdoifhodihfo dhgo u0oijoif ojf9 uoifjoi onfiuhonj foihoefou fhiuwhshiuehfhuwehfnsd ojf oi oewjf oi8we",
+          "nodes": []
+        }
+      ]
+    },
+    {
+      "selfId": "ML9701527",
+      "title": "Model Evaluation",
+      "desc": "sjdhfhsdh fhskdh fkjshndf uhsduh fosdh ufh sedhof oisdh oifhsodh foishdoihfoihdoifhodihfo dhgo u0oijoif ojf9 uoifjoi onfiuhonj foihoefou fhiuwhshiuehfhuwehfnsd ojf oi oewjf oi8we",
+      "nodes": [
+        {
+          "selfId": "ML9709772",
+          "title": "Classification",
+          "desc": "sjdhfhsdh fhskdh fkjshndf uhsduh fosdh ufh sedhof oisdh oifhsodh foishdoihfoihdoifhodihfo dhgo u0oijoif ojf9 uoifjoi onfiuhonj foihoefou fhiuwhshiuehfhuwehfnsd ojf oi oewjf oi8we",
+          "nodes": [
+            {
+              "selfId": "ML970506",
+              "title": "Accuracy",
+              "desc": "sjdhfhsdh fhskdh fkjshndf uhsduh fosdh ufh sedhof oisdh oifhsodh foishdoihfoihdoifhodihfo dhgo u0oijoif ojf9 uoifjoi onfiuhonj foihoefou fhiuwhshiuehfhuwehfnsd ojf oi oewjf oi8we",
+              "nodes": []
+            },
+            {
+              "selfId": "ML9709362",
+              "title": "Precision",
+              "desc": "sjdhfhsdh fhskdh fkjshndf uhsduh fosdh ufh sedhof oisdh oifhsodh foishdoihfoihdoifhodihfo dhgo u0oijoif ojf9 uoifjoi onfiuhonj foihoefou fhiuwhshiuehfhuwehfnsd ojf oi oewjf oi8we",
+              "nodes": []
+            }
+          ]
+        },
+        {
+          "selfId": "ML9709019",
+          "title": "Regression",
+          "desc": "sjdhfhsdh fhskdh fkjshndf uhsduh fosdh ufh sedhof oisdh oifhsodh foishdoihfoihdoifhodihfo dhgo u0oijoif ojf9 uoifjoi onfiuhonj foihoefou fhiuwhshiuehfhuwehfnsd ojf oi oewjf oi8we",
+          "nodes": [
+            {
+              "selfId": "ML9708244",
+              "title": "MSE",
+              "desc": "sjdhfhsdh fhskdh fkjshndf uhsduh fosdh ufh sedhof oisdh oifhsodh foishdoihfoihdoifhodihfo dhgo u0oijoif ojf9 uoifjoi onfiuhonj foihoefou fhiuwhshiuehfhuwehfnsd ojf oi oewjf oi8we",
+              "nodes": []
+            },
+            {
+              "selfId": "ML9706732",
+              "title": "RMSE",
+              "desc": "sjdhfhsdh fhskdh fkjshndf uhsduh fosdh ufh sedhof oisdh oifhsodh foishdoihfoihdoifhodihfo dhgo u0oijoif ojf9 uoifjoi onfiuhonj foihoefou fhiuwhshiuehfhuwehfnsd ojf oi oewjf oi8we",
+              "nodes": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
