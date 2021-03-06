@@ -397,10 +397,12 @@ class GetTrack(APIView):
         output = track[rootId]
         if rootId in allRoots:
             root = models.TrackRoots.objects.get(selfId=rootId)
-            juniors = list(map(getRoots, root.juniors))
-            seniors = list(map(getRoots, root.seniors))
-            output['juniors'] = juniors
-            output['seniors'] = seniors
+            if root.juniors:
+                juniors = list(map(getRoots, root.juniors))
+                output['juniors'] = juniors
+            if root.seniors:
+                seniors = list(map(getRoots, root.seniors))
+                output['seniors'] = seniors
 
         return JsonResponse(output, safe=False)
 
