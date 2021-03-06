@@ -6,4 +6,6 @@ urlpatterns = [
     path('',views.NewTrack.as_view(), name='new-track'),
     path('addNode/', views.NewNode.as_view(), name='add-node'),
     path('getTrack/', views.GetTrack.as_view(), name='get-track'),
+    path('resource/', views.ResourcesView.as_view(), name='get-resource'),
+    path('getTrackMeta/', views.GetMetaView.as_view(), name='get-meta'),
 ]

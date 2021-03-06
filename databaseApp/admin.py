@@ -5,3 +5,4 @@ from databaseApp import models
 admin.site.register(models.TrackRoots)
 admin.site.register(models.TrackNodes)
 admin.site.register(models.Mappings)
+admin.site.register(models.Resources)

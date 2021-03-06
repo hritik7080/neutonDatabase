@@ -12,3 +12,8 @@ class RootSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.TrackRoots
         fields = ["selfId", "title", "desc"]
+
+class ResourcesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Resources
+        fields='__all__'

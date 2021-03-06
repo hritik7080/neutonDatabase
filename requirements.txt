@@ -9,4 +9,5 @@ gunicorn
 python-decouple
 numpy
 django-cors-headers
+djangorestframework-simplejwt
 requests

@@ -407,4 +407,42 @@ class GetTrack(APIView):
         return JsonResponse(output, safe=False)
 
 
+class ResourcesView(APIView):
+    def post(self, request, *args, **kwargs):
+        track = models.TrackRoots.objects.get(selfId=request.POST.get('course'))
+        obj = models.Resources(
+            avatar=request.FILES.get('avatar'),
+            username=request.POST.get('username'),
+            poster=request.FILES.get('poster'),
+            course=track,
+            link=request.POST.get('link'),
+            price=request.POST.get('price'),
+            title=request.POST.get('title'),
+            desc=request.POST.get('desc')
+        )
+
+        obj.save()
+
+        return JsonResponse({'result': 'success'}, safe=False)
+    
+    def get(self, request, *args, **kwargs):
+        if request.GET.get('id'):
+            objs = models.Resources.objects.filter(course__selfId=request.GET.get('id'))
+            ouptput = []
+            for i in objs:
+                ouptput.append(serializers.ResourcesSerializer(i).data)
+            return JsonResponse(ouptput, safe=False)
+        output=[]
+        for i in models.Resources.objects.all():
+            output.append(serializers.ResourcesSerializer(i).data)
+            return JsonResponse(output, safe=False)
+
+
+class GetMetaView(APIView):
+    def get(self, request, *args, **kwargs):
+        output=[]
+        for i in models.TrackRoots.objects.all():
+            output.append(serializers.RootSerializer(i).data)
+        return JsonResponse(output, safe=False)
+
 

@@ -49,6 +49,19 @@ class Mappings(models.Model):
         return f"{l.title} --> {r.title}"
 
 
+class Resources(models.Model):
+    avatar = models.ImageField(upload_to='resourcesImages/')
+    username = models.CharField(max_length=500)
+    poster = models.ImageField(upload_to='resourcesImages/')
+    course = models.ForeignKey(TrackRoots, on_delete=models.CASCADE)
+    link = models.TextField(max_length=6000)
+    price = models.CharField(max_length=50)
+    title = models.CharField(max_length=500)
+    desc = models.TextField(max_length=6000)
+
+    def __str__(self):
+        return self.title
+
 
 
 
