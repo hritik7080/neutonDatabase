@@ -98,11 +98,11 @@ DATABASES = {
 
         'NAME': 'neuton',
 
-        'USER': 'postgres',
+        'USER': 'neuton',
 
-        'PASSWORD': '7080',
+        'PASSWORD': 'pV051KCeFYwOcCgljVc7',
 
-        'HOST': '127.0.0.1',
+        'HOST': 'database-2.crbemolin1h2.us-east-2.rds.amazonaws.com',
 
         'PORT': '5432',
 
@@ -110,8 +110,8 @@ DATABASES = {
 
 }
 
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
+# db_from_env = dj_database_url.config()
+# DATABASES['default'].update(db_from_env)
 
 
 # Password validation
