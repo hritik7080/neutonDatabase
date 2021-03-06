@@ -428,19 +428,23 @@ class ResourcesView(APIView):
         return JsonResponse({'result': 'success'}, safe=False)
     
     def get(self, request, *args, **kwargs):
-        try:
             if request.GET.get('id'):
+                print("in id")
                 objs = models.Resources.objects.filter(course__selfId=request.GET.get('id'))
                 ouptput = []
                 for i in objs:
                     ouptput.append(serializers.ResourcesSerializer(i).data)
                 return JsonResponse(ouptput, safe=False)
             output=[]
-            for i in models.Resources.objects.all():
-                output.append(serializers.ResourcesSerializer(i).data)
-                return JsonResponse(output, safe=False)
-        except:
-            return Response({'result': 'No Resource Available'}, status=status.HTTP_404_NOT_FOUND)
+            objs = models.Resources.objects.all()
+            if len(objs)>0:
+                print('not in id')
+                for i in objs:
+                    output.append(serializers.ResourcesSerializer(i).data)
+                    return JsonResponse(output, safe=False)
+            else:
+                print('in else')
+                return Response({'result': 'No Resource Available'}, status=status.HTTP_404_NOT_FOUND)
 
 
 class GetMetaView(APIView):
