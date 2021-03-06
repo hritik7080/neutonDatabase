@@ -7,6 +7,9 @@ from django.http import JsonResponse
 
 # Create your views here.
 
+allRoots = list()
+allNodes = list()
+
 def getMappingL2(obj):
     return obj.l2
 
@@ -23,8 +26,11 @@ def getRoots(id):
     return serializers.RootSerializer(models.TrackRoots.objects.get(selfId=id)).data
     
 
-allRoots = list(map(getSelfId, models.TrackRoots.objects.all()))
-allNodes = list(map(getSelfId, models.TrackNodes.objects.all()))
+def globals():
+    global allRoots
+    global allNodes
+    allRoots = list(map(getSelfId, models.TrackRoots.objects.all()))
+    allNodes = list(map(getSelfId, models.TrackNodes.objects.all()))
 
 
 class NewTrack(View):
@@ -309,6 +315,7 @@ class GetTrack(APIView):
     #     print(maps)
 
     def get(self, request, *args, **kwargs):
+        globals()
         rootId = request.GET['id']
         track = {}
         print(rootId, "========================================")
