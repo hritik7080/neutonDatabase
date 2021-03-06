@@ -3,7 +3,9 @@ from django.views.generic import View
 import random
 from databaseApp import models, serializers
 from rest_framework.views import APIView
+from rest_framework import status
 from django.http import JsonResponse
+from rest_framework.response import Response
 
 # Create your views here.
 
@@ -426,16 +428,19 @@ class ResourcesView(APIView):
         return JsonResponse({'result': 'success'}, safe=False)
     
     def get(self, request, *args, **kwargs):
-        if request.GET.get('id'):
-            objs = models.Resources.objects.filter(course__selfId=request.GET.get('id'))
-            ouptput = []
-            for i in objs:
-                ouptput.append(serializers.ResourcesSerializer(i).data)
-            return JsonResponse(ouptput, safe=False)
-        output=[]
-        for i in models.Resources.objects.all():
-            output.append(serializers.ResourcesSerializer(i).data)
-            return JsonResponse(output, safe=False)
+        try:
+            if request.GET.get('id'):
+                objs = models.Resources.objects.filter(course__selfId=request.GET.get('id'))
+                ouptput = []
+                for i in objs:
+                    ouptput.append(serializers.ResourcesSerializer(i).data)
+                return JsonResponse(ouptput, safe=False)
+            output=[]
+            for i in models.Resources.objects.all():
+                output.append(serializers.ResourcesSerializer(i).data)
+                return JsonResponse(output, safe=False)
+        except:
+            return Response({'result': 'No Resource Available'}, status=status.HTTP_404_NOT_FOUND)
 
 
 class GetMetaView(APIView):
