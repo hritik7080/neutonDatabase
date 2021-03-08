@@ -6,11 +6,16 @@ from rest_framework.views import APIView
 from rest_framework import status
 from django.http import JsonResponse
 from rest_framework.response import Response
+from authentication import models as auth_model
 
 # Create your views here.
 
 allRoots = list()
 allNodes = list()
+
+
+def isAuthenticated(token):
+    return auth_model.IssuedTokens.objects.filter(token=token).exists()
 
 
 def getMappingL2(obj):
@@ -346,57 +351,62 @@ class GetTrack(APIView):
         child = maps[parent]
         c = 0
         while True:
-            if c > 0 and len(parent) == 0:
-                # parents.append(parent)
-                # child = maps[parent]
-                break
-            c += 1
-            parentId = parent[:-1]
-            childId = child[:-1]
-            if parentId not in track:
-                if len(models.TrackRoots.objects.filter(selfId=parentId)) == 0:
-                    obj = models.TrackNodes.objects.get(selfId=parentId)
+            try:
+                if c > 0 and len(parent) == 0:
+                    # parents.append(parent)
+                    # child = maps[parent]
+                    break
+                c += 1
+                parentId = parent[:-1]
+                childId = child[:-1]
+                if parentId not in track:
+                    if len(models.TrackRoots.objects.filter(selfId=parentId)) == 0:
+                        obj = models.TrackNodes.objects.get(selfId=parentId)
+                        obj = dict(serializers.NodeSerializer(obj).data)
+                        obj['nodes'] = []
+                    else:
+                        obj = models.TrackRoots.objects.get(selfId=parentId)
+                        obj = dict(serializers.RootSerializer(obj).data)
+                        obj['nodes'] = []
+
+                    track[parentId] = obj
+
+                if childId not in track:
+                    obj = models.TrackNodes.objects.get(selfId=childId)
                     obj = dict(serializers.NodeSerializer(obj).data)
                     obj['nodes'] = []
-                else:
-                    obj = models.TrackRoots.objects.get(selfId=parentId)
-                    obj = dict(serializers.RootSerializer(obj).data)
-                    obj['nodes'] = []
 
-                track[parentId] = obj
+                    track[childId] = obj
 
-            if childId not in track:
-                obj = models.TrackNodes.objects.get(selfId=childId)
-                obj = dict(serializers.NodeSerializer(obj).data)
-                obj['nodes'] = []
+                    track[parentId]['nodes'].append(track[childId])
 
-                track[childId] = obj
+                # if child=='ML970r':
+                #     break
+                # else:
+                _next = maps[child]
+                if _next == rootId+'r':
+                    break
 
-                track[parentId]['nodes'].append(track[childId])
+                if child[-1] == _next[-1] == 'l':
+                    parent = child
+                    parents.append(parent)
+                    child = maps[parent]
 
-            # if child=='ML970r':
-            #     break
-            # else:
-            _next = maps[child]
-            if _next == rootId+'r':
+                elif child[-1] == 'l' and _next[-1] == 'r':
+                    child = _next
+
+                elif child[-1] == 'r' and _next[-1] == 'r':
+                    parent = parents.pop()
+                    print(parents)
+                    
+                    parent = parents[-1]
+                    child = _next
+
+                elif child[-1] == 'r' and _next[-1] == 'l':
+                    child = _next
+            except:
                 break
 
-            if child[-1] == _next[-1] == 'l':
-                parent = child
-                parents.append(parent)
-                child = maps[parent]
-
-            elif child[-1] == 'l' and _next[-1] == 'r':
-                child = _next
-
-            elif child[-1] == 'r' and _next[-1] == 'r':
-                parent = parents.pop()
-                print(parents)
-                parent = parents[-1]
-                child = _next
-
-            elif child[-1] == 'r' and _next[-1] == 'l':
-                child = _next
 
             # print(track)
         output = track[rootId]
@@ -414,6 +424,8 @@ class GetTrack(APIView):
 
 class ResourcesView(APIView):
     def post(self, request, *args, **kwargs):
+        if not isAuthenticated(request.POST.get('token')):
+            return Response({'result': 'Sorry, you are not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
         track = models.TrackRoots.objects.get(
             selfId=request.POST.get('course'))
         obj = models.Resources(
@@ -432,6 +444,8 @@ class ResourcesView(APIView):
         return JsonResponse({'result': 'success'}, safe=False)
 
     def get(self, request, *args, **kwargs):
+        if not isAuthenticated(request.GET.get('token')):
+            return Response({'result': 'Sorry, you are not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
         if request.GET.get('id'):
             print("in id")
             objs = models.Resources.objects.filter(
@@ -462,6 +476,9 @@ class GetMetaView(APIView):
 
 class TrackLikes(APIView):
     def get(self, request, *args, **kwargs):
+        if not isAuthenticated(request.GET.get('token')):
+            return Response({'result': 'Sorry, you are not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
+
         root = models.TrackRoots.objects.get(selfId=request.GET['id'])
         if request.GET['action'] == 'like':
             root.likes += 1
@@ -477,7 +494,10 @@ class TrackLikes(APIView):
 
 class ResourceActions(APIView):
     def get(self, request, *args, **kwargs):
-        resource=models.Resources.objects.get(id=request.GET['id'])
+        if not isAuthenticated(request.GET.get('token')):
+            return Response({'result': 'Sorry, you are not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
+
+        resource = models.Resources.objects.get(id=request.GET['id'])
         if request.GET['action'] == 'like':
             resource.likes += 1
             resource.save()
@@ -486,13 +506,9 @@ class ResourceActions(APIView):
             resource.likes -= 1
             resource.save()
             return Response({'result': 'Disliked'}, status=status.HTTP_200_OK)
-        elif request.GET['action']=='view':
+        elif request.GET['action'] == 'view':
             resource.views += 1
             resource.save()
             return Response({'result': 'Viewed'}, status=status.HTTP_200_OK)
         else:
             return Response({'result': 'Unknown Action'}, status=status.HTTP_400_BAD_REQUEST)
-
-
-
-

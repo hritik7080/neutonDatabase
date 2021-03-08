@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'databaseApp',
     'corsheaders',
     'rest_framework',
+    'authentication',
     
 ]
 
@@ -112,6 +113,13 @@ DATABASES = {
 
 }
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'authentication.backends.JWTAuthentication',
+    )
+}
+
 # db_from_env = dj_database_url.config()
 # DATABASES['default'].update(db_from_env)
 
@@ -148,6 +156,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+# JWT
+JWT_SECRET_KEY = "JWT_SECRET_KEYJWT_SECRET_KEYJWT_SECRET_KEYJWT_SECRET_KEYJWT_SECRET_KEYJWT_SECRET_KEYJWT_SECRET_KEY"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
