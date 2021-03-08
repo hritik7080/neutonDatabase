@@ -11,7 +11,7 @@ class NodeSerializer(serializers.ModelSerializer):
 class RootSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.TrackRoots
-        fields = ["selfId", "title", "desc"]
+        fields = ["selfId", "title", "desc", 'likes', 'views']
 
 class ResourcesSerializer(serializers.ModelSerializer):
     class Meta:

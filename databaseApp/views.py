@@ -475,5 +475,24 @@ class TrackLikes(APIView):
             return Response({'result': 'Unknown Action'}, status=status.HTTP_400_BAD_REQUEST)
 
 
+class ResourceActions(APIView):
+    def get(self, request, *args, **kwargs):
+        resource=models.Resources.objects.get(id=request.GET['id'])
+        if request.GET['action'] == 'like':
+            resource.likes += 1
+            resource.save()
+            return Response({'result': 'Liked'}, status=status.HTTP_200_OK)
+        elif request.GET['action'] == 'dislike':
+            resource.likes -= 1
+            resource.save()
+            return Response({'result': 'Disliked'}, status=status.HTTP_200_OK)
+        elif request.GET['action']=='view':
+            resource.views += 1
+            resource.save()
+            return Response({'result': 'Viewed'}, status=status.HTTP_200_OK)
+        else:
+            return Response({'result': 'Unknown Action'}, status=status.HTTP_400_BAD_REQUEST)
+
+
 
 

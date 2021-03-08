@@ -4,8 +4,8 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="robots" content="NONE,NOARCHIVE">
-	<title>AttributeError
-		at /getTrack/</title>
+	<title>AssertionError
+		at /resourceAction/</title>
 	<style type="text/css">
 		html * {
 			padding: 0;
@@ -310,9 +310,10 @@
 
 <body>
 	<div id="summary">
-		<h1>AttributeError
-			at /getTrack/</h1>
-		<pre class="exception_value">&#x27;TrackRoots&#x27; object has no attribute &#x27;update&#x27;</pre>
+		<h1>AssertionError
+			at /resourceAction/</h1>
+		<pre
+			class="exception_value">Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `&lt;class &#x27;NoneType&#x27;&gt;`</pre>
 		<table class="meta">
 
 			<tr>
@@ -321,7 +322,7 @@
 			</tr>
 			<tr>
 				<th>Request URL:</th>
-				<td>http://127.0.0.1:8000/getTrack/?id=LP561</td>
+				<td>http://127.0.0.1:8000/resourceAction/?id=3&amp;action=view</td>
 			</tr>
 
 			<tr>
@@ -331,21 +332,22 @@
 
 			<tr>
 				<th>Exception Type:</th>
-				<td>AttributeError</td>
+				<td>AssertionError</td>
 			</tr>
 
 
 			<tr>
 				<th>Exception Value:</th>
 				<td>
-					<pre>&#x27;TrackRoots&#x27; object has no attribute &#x27;update&#x27;</pre>
+					<pre>Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `&lt;class &#x27;NoneType&#x27;&gt;`</pre>
 				</td>
 			</tr>
 
 
 			<tr>
 				<th>Exception Location:</th>
-				<td><span class="fname">D:\Projects\neutonDatabase\databaseApp\views.py</span>, line 326, in get</td>
+				<td><span class="fname">D:\ProgramFiles\Anaconda\lib\site-packages\rest_framework\views.py</span>, line
+					423, in finalize_response</td>
 			</tr>
 
 			<tr>
@@ -373,7 +375,7 @@
 			</tr>
 			<tr>
 				<th>Server time:</th>
-				<td>Mon, 08 Mar 2021 07:59:46 +0000</td>
+				<td>Mon, 08 Mar 2021 10:12:28 +0000</td>
 			</tr>
 		</table>
 	</div>
@@ -394,68 +396,68 @@
 					line 47, in inner
 
 
-					<div class="context" id="c2174290523712">
+					<div class="context" id="c2107877834688">
 
-						<ol start="40" class="pre-context" id="pre2174290523712">
+						<ol start="40" class="pre-context" id="pre2107877834688">
 
-							<li onclick="toggle('pre2174290523712', 'post2174290523712')">
+							<li onclick="toggle('pre2107877834688', 'post2107877834688')">
 								<pre>                response = await sync_to_async(response_for_exception, thread_sensitive=False)(request, exc)</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290523712', 'post2174290523712')">
+							<li onclick="toggle('pre2107877834688', 'post2107877834688')">
 								<pre>            return response</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290523712', 'post2174290523712')">
+							<li onclick="toggle('pre2107877834688', 'post2107877834688')">
 								<pre>        return inner</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290523712', 'post2174290523712')">
+							<li onclick="toggle('pre2107877834688', 'post2107877834688')">
 								<pre>    else:</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290523712', 'post2174290523712')">
+							<li onclick="toggle('pre2107877834688', 'post2107877834688')">
 								<pre>        @wraps(get_response)</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290523712', 'post2174290523712')">
+							<li onclick="toggle('pre2107877834688', 'post2107877834688')">
 								<pre>        def inner(request):</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290523712', 'post2174290523712')">
+							<li onclick="toggle('pre2107877834688', 'post2107877834688')">
 								<pre>            try:</pre>
 							</li>
 
 						</ol>
 
 						<ol start="47" class="context-line">
-							<li onclick="toggle('pre2174290523712', 'post2174290523712')">
+							<li onclick="toggle('pre2107877834688', 'post2107877834688')">
 								<pre>                response = get_response(request)</pre> <span>…</span></li>
 						</ol>
 
-						<ol start='48' class="post-context" id="post2174290523712">
+						<ol start='48' class="post-context" id="post2107877834688">
 
-							<li onclick="toggle('pre2174290523712', 'post2174290523712')">
+							<li onclick="toggle('pre2107877834688', 'post2107877834688')">
 								<pre>            except Exception as exc:</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290523712', 'post2174290523712')">
+							<li onclick="toggle('pre2107877834688', 'post2107877834688')">
 								<pre>                response = response_for_exception(request, exc)</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290523712', 'post2174290523712')">
+							<li onclick="toggle('pre2107877834688', 'post2107877834688')">
 								<pre>            return response</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290523712', 'post2174290523712')">
+							<li onclick="toggle('pre2107877834688', 'post2107877834688')">
 								<pre>        return inner</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290523712', 'post2174290523712')">
+							<li onclick="toggle('pre2107877834688', 'post2107877834688')">
 								<pre></pre>
 							</li>
 
-							<li onclick="toggle('pre2174290523712', 'post2174290523712')">
+							<li onclick="toggle('pre2107877834688', 'post2107877834688')">
 								<pre></pre>
 							</li>
 
@@ -467,11 +469,11 @@
 
 					<div class="commands">
 
-						<a href="#" onclick="return varToggle(this, '2174290523712')"><span>&#x25b6;</span> Local
+						<a href="#" onclick="return varToggle(this, '2107877834688')"><span>&#x25b6;</span> Local
 							vars</a>
 
 					</div>
-					<table class="vars" id="v2174290523712">
+					<table class="vars" id="v2107877834688">
 						<thead>
 							<tr>
 								<th>Variable</th>
@@ -483,21 +485,21 @@
 							<tr>
 								<td>exc</td>
 								<td class="code">
-									<pre>AttributeError(&quot;&#x27;TrackRoots&#x27; object has no attribute &#x27;update&#x27;&quot;)</pre>
+									<pre>AssertionError(&quot;Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `&lt;class &#x27;NoneType&#x27;&gt;`&quot;)</pre>
 								</td>
 							</tr>
 
 							<tr>
 								<td>get_response</td>
 								<td class="code">
-									<pre>&lt;bound method BaseHandler._get_response of &lt;django.core.handlers.wsgi.WSGIHandler object at 0x000001FA3C280D90&gt;&gt;</pre>
+									<pre>&lt;bound method BaseHandler._get_response of &lt;django.core.handlers.wsgi.WSGIHandler object at 0x000001EAC5AA0D90&gt;&gt;</pre>
 								</td>
 							</tr>
 
 							<tr>
 								<td>request</td>
 								<td class="code">
-									<pre>&lt;WSGIRequest: GET &#x27;/getTrack/?id=LP561&#x27;&gt;</pre>
+									<pre>&lt;WSGIRequest: GET &#x27;/resourceAction/?id=3&amp;action=view&#x27;&gt;</pre>
 								</td>
 							</tr>
 
@@ -512,69 +514,69 @@
 					line 179, in _get_response
 
 
-					<div class="context" id="c2174290522496">
+					<div class="context" id="c2107877832832">
 
-						<ol start="172" class="pre-context" id="pre2174290522496">
+						<ol start="172" class="pre-context" id="pre2107877832832">
 
-							<li onclick="toggle('pre2174290522496', 'post2174290522496')">
+							<li onclick="toggle('pre2107877832832', 'post2107877832832')">
 								<pre></pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522496', 'post2174290522496')">
+							<li onclick="toggle('pre2107877832832', 'post2107877832832')">
 								<pre>        if response is None:</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522496', 'post2174290522496')">
+							<li onclick="toggle('pre2107877832832', 'post2107877832832')">
 								<pre>            wrapped_callback = self.make_view_atomic(callback)</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522496', 'post2174290522496')">
+							<li onclick="toggle('pre2107877832832', 'post2107877832832')">
 								<pre>            # If it is an asynchronous view, run it in a subthread.</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522496', 'post2174290522496')">
+							<li onclick="toggle('pre2107877832832', 'post2107877832832')">
 								<pre>            if asyncio.iscoroutinefunction(wrapped_callback):</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522496', 'post2174290522496')">
+							<li onclick="toggle('pre2107877832832', 'post2107877832832')">
 								<pre>                wrapped_callback = async_to_sync(wrapped_callback)</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522496', 'post2174290522496')">
+							<li onclick="toggle('pre2107877832832', 'post2107877832832')">
 								<pre>            try:</pre>
 							</li>
 
 						</ol>
 
 						<ol start="179" class="context-line">
-							<li onclick="toggle('pre2174290522496', 'post2174290522496')">
+							<li onclick="toggle('pre2107877832832', 'post2107877832832')">
 								<pre>                response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre>
 								<span>…</span></li>
 						</ol>
 
-						<ol start='180' class="post-context" id="post2174290522496">
+						<ol start='180' class="post-context" id="post2107877832832">
 
-							<li onclick="toggle('pre2174290522496', 'post2174290522496')">
+							<li onclick="toggle('pre2107877832832', 'post2107877832832')">
 								<pre>            except Exception as e:</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522496', 'post2174290522496')">
+							<li onclick="toggle('pre2107877832832', 'post2107877832832')">
 								<pre>                response = self.process_exception_by_middleware(e, request)</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522496', 'post2174290522496')">
+							<li onclick="toggle('pre2107877832832', 'post2107877832832')">
 								<pre>                if response is None:</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522496', 'post2174290522496')">
+							<li onclick="toggle('pre2107877832832', 'post2107877832832')">
 								<pre>                    raise</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522496', 'post2174290522496')">
+							<li onclick="toggle('pre2107877832832', 'post2107877832832')">
 								<pre></pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522496', 'post2174290522496')">
+							<li onclick="toggle('pre2107877832832', 'post2107877832832')">
 								<pre>        # Complain if the view returned None (a common error).</pre>
 							</li>
 
@@ -586,11 +588,11 @@
 
 					<div class="commands">
 
-						<a href="#" onclick="return varToggle(this, '2174290522496')"><span>&#x25b6;</span> Local
+						<a href="#" onclick="return varToggle(this, '2107877832832')"><span>&#x25b6;</span> Local
 							vars</a>
 
 					</div>
-					<table class="vars" id="v2174290522496">
+					<table class="vars" id="v2107877832832">
 						<thead>
 							<tr>
 								<th>Variable</th>
@@ -602,7 +604,7 @@
 							<tr>
 								<td>callback</td>
 								<td class="code">
-									<pre>&lt;function GetTrack at 0x000001FA3DA1C0D0&gt;</pre>
+									<pre>&lt;function ResourceActions at 0x000001EAC723B8B0&gt;</pre>
 								</td>
 							</tr>
 
@@ -623,14 +625,14 @@
 							<tr>
 								<td>middleware_method</td>
 								<td class="code">
-									<pre>&lt;bound method CorsMiddleware.process_view of &lt;corsheaders.middleware.CorsMiddleware object at 0x000001FA3C280CA0&gt;&gt;</pre>
+									<pre>&lt;bound method CorsMiddleware.process_view of &lt;corsheaders.middleware.CorsMiddleware object at 0x000001EAC5AA0CA0&gt;&gt;</pre>
 								</td>
 							</tr>
 
 							<tr>
 								<td>request</td>
 								<td class="code">
-									<pre>&lt;WSGIRequest: GET &#x27;/getTrack/?id=LP561&#x27;&gt;</pre>
+									<pre>&lt;WSGIRequest: GET &#x27;/resourceAction/?id=3&amp;action=view&#x27;&gt;</pre>
 								</td>
 							</tr>
 
@@ -644,14 +646,14 @@
 							<tr>
 								<td>self</td>
 								<td class="code">
-									<pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x000001FA3C280D90&gt;</pre>
+									<pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x000001EAC5AA0D90&gt;</pre>
 								</td>
 							</tr>
 
 							<tr>
 								<td>wrapped_callback</td>
 								<td class="code">
-									<pre>&lt;function GetTrack at 0x000001FA3DA1C0D0&gt;</pre>
+									<pre>&lt;function ResourceActions at 0x000001EAC723B8B0&gt;</pre>
 								</td>
 							</tr>
 
@@ -666,52 +668,52 @@
 					line 54, in wrapped_view
 
 
-					<div class="context" id="c2174290522432">
+					<div class="context" id="c2107877833024">
 
-						<ol start="47" class="pre-context" id="pre2174290522432">
+						<ol start="47" class="pre-context" id="pre2107877833024">
 
-							<li onclick="toggle('pre2174290522432', 'post2174290522432')">
+							<li onclick="toggle('pre2107877833024', 'post2107877833024')">
 								<pre></pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522432', 'post2174290522432')">
+							<li onclick="toggle('pre2107877833024', 'post2107877833024')">
 								<pre></pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522432', 'post2174290522432')">
+							<li onclick="toggle('pre2107877833024', 'post2107877833024')">
 								<pre>def csrf_exempt(view_func):</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522432', 'post2174290522432')">
+							<li onclick="toggle('pre2107877833024', 'post2107877833024')">
 								<pre>    &quot;&quot;&quot;Mark a view function as being exempt from the CSRF view protection.&quot;&quot;&quot;</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522432', 'post2174290522432')">
+							<li onclick="toggle('pre2107877833024', 'post2107877833024')">
 								<pre>    # view_func.csrf_exempt = True would also work, but decorators are nicer</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522432', 'post2174290522432')">
+							<li onclick="toggle('pre2107877833024', 'post2107877833024')">
 								<pre>    # if they don&#x27;t have side effects, so return a new function.</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522432', 'post2174290522432')">
+							<li onclick="toggle('pre2107877833024', 'post2107877833024')">
 								<pre>    def wrapped_view(*args, **kwargs):</pre>
 							</li>
 
 						</ol>
 
 						<ol start="54" class="context-line">
-							<li onclick="toggle('pre2174290522432', 'post2174290522432')">
+							<li onclick="toggle('pre2107877833024', 'post2107877833024')">
 								<pre>        return view_func(*args, **kwargs)</pre> <span>…</span></li>
 						</ol>
 
-						<ol start='55' class="post-context" id="post2174290522432">
+						<ol start='55' class="post-context" id="post2107877833024">
 
-							<li onclick="toggle('pre2174290522432', 'post2174290522432')">
+							<li onclick="toggle('pre2107877833024', 'post2107877833024')">
 								<pre>    wrapped_view.csrf_exempt = True</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522432', 'post2174290522432')">
+							<li onclick="toggle('pre2107877833024', 'post2107877833024')">
 								<pre>    return wraps(view_func)(wrapped_view)</pre>
 							</li>
 
@@ -723,11 +725,11 @@
 
 					<div class="commands">
 
-						<a href="#" onclick="return varToggle(this, '2174290522432')"><span>&#x25b6;</span> Local
+						<a href="#" onclick="return varToggle(this, '2107877833024')"><span>&#x25b6;</span> Local
 							vars</a>
 
 					</div>
-					<table class="vars" id="v2174290522432">
+					<table class="vars" id="v2107877833024">
 						<thead>
 							<tr>
 								<th>Variable</th>
@@ -739,7 +741,7 @@
 							<tr>
 								<td>args</td>
 								<td class="code">
-									<pre>(&lt;WSGIRequest: GET &#x27;/getTrack/?id=LP561&#x27;&gt;,)</pre>
+									<pre>(&lt;WSGIRequest: GET &#x27;/resourceAction/?id=3&amp;action=view&#x27;&gt;,)</pre>
 								</td>
 							</tr>
 
@@ -753,7 +755,7 @@
 							<tr>
 								<td>view_func</td>
 								<td class="code">
-									<pre>&lt;function GetTrack at 0x000001FA3DA1C040&gt;</pre>
+									<pre>&lt;function ResourceActions at 0x000001EAC723B820&gt;</pre>
 								</td>
 							</tr>
 
@@ -768,69 +770,69 @@
 					line 70, in view
 
 
-					<div class="context" id="c2174290522560">
+					<div class="context" id="c2107879545984">
 
-						<ol start="63" class="pre-context" id="pre2174290522560">
+						<ol start="63" class="pre-context" id="pre2107879545984">
 
-							<li onclick="toggle('pre2174290522560', 'post2174290522560')">
+							<li onclick="toggle('pre2107879545984', 'post2107879545984')">
 								<pre>            self = cls(**initkwargs)</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522560', 'post2174290522560')">
+							<li onclick="toggle('pre2107879545984', 'post2107879545984')">
 								<pre>            self.setup(request, *args, **kwargs)</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522560', 'post2174290522560')">
+							<li onclick="toggle('pre2107879545984', 'post2107879545984')">
 								<pre>            if not hasattr(self, &#x27;request&#x27;):</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522560', 'post2174290522560')">
+							<li onclick="toggle('pre2107879545984', 'post2107879545984')">
 								<pre>                raise AttributeError(</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522560', 'post2174290522560')">
+							<li onclick="toggle('pre2107879545984', 'post2107879545984')">
 								<pre>                    &quot;%s instance has no &#x27;request&#x27; attribute. Did you override &quot;</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522560', 'post2174290522560')">
+							<li onclick="toggle('pre2107879545984', 'post2107879545984')">
 								<pre>                    &quot;setup() and forget to call super()?&quot; % cls.__name__</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522560', 'post2174290522560')">
+							<li onclick="toggle('pre2107879545984', 'post2107879545984')">
 								<pre>                )</pre>
 							</li>
 
 						</ol>
 
 						<ol start="70" class="context-line">
-							<li onclick="toggle('pre2174290522560', 'post2174290522560')">
+							<li onclick="toggle('pre2107879545984', 'post2107879545984')">
 								<pre>            return self.dispatch(request, *args, **kwargs)</pre> <span>…</span>
 							</li>
 						</ol>
 
-						<ol start='71' class="post-context" id="post2174290522560">
+						<ol start='71' class="post-context" id="post2107879545984">
 
-							<li onclick="toggle('pre2174290522560', 'post2174290522560')">
+							<li onclick="toggle('pre2107879545984', 'post2107879545984')">
 								<pre>        view.view_class = cls</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522560', 'post2174290522560')">
+							<li onclick="toggle('pre2107879545984', 'post2107879545984')">
 								<pre>        view.view_initkwargs = initkwargs</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522560', 'post2174290522560')">
+							<li onclick="toggle('pre2107879545984', 'post2107879545984')">
 								<pre></pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522560', 'post2174290522560')">
+							<li onclick="toggle('pre2107879545984', 'post2107879545984')">
 								<pre>        # take name and docstring from class</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522560', 'post2174290522560')">
+							<li onclick="toggle('pre2107879545984', 'post2107879545984')">
 								<pre>        update_wrapper(view, cls, updated=())</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290522560', 'post2174290522560')">
+							<li onclick="toggle('pre2107879545984', 'post2107879545984')">
 								<pre></pre>
 							</li>
 
@@ -842,11 +844,11 @@
 
 					<div class="commands">
 
-						<a href="#" onclick="return varToggle(this, '2174290522560')"><span>&#x25b6;</span> Local
+						<a href="#" onclick="return varToggle(this, '2107879545984')"><span>&#x25b6;</span> Local
 							vars</a>
 
 					</div>
-					<table class="vars" id="v2174290522560">
+					<table class="vars" id="v2107879545984">
 						<thead>
 							<tr>
 								<th>Variable</th>
@@ -865,7 +867,7 @@
 							<tr>
 								<td>cls</td>
 								<td class="code">
-									<pre>&lt;class &#x27;databaseApp.views.GetTrack&#x27;&gt;</pre>
+									<pre>&lt;class &#x27;databaseApp.views.ResourceActions&#x27;&gt;</pre>
 								</td>
 							</tr>
 
@@ -886,14 +888,14 @@
 							<tr>
 								<td>request</td>
 								<td class="code">
-									<pre>&lt;WSGIRequest: GET &#x27;/getTrack/?id=LP561&#x27;&gt;</pre>
+									<pre>&lt;WSGIRequest: GET &#x27;/resourceAction/?id=3&amp;action=view&#x27;&gt;</pre>
 								</td>
 							</tr>
 
 							<tr>
 								<td>self</td>
 								<td class="code">
-									<pre>&lt;databaseApp.views.GetTrack object at 0x000001FA3DE7BFD0&gt;</pre>
+									<pre>&lt;databaseApp.views.ResourceActions object at 0x000001EAC76F7850&gt;</pre>
 								</td>
 							</tr>
 
@@ -905,71 +907,72 @@
 
 				<li class="frame user">
 					<code class="fname">D:\ProgramFiles\Anaconda\lib\site-packages\rest_framework\views.py</code>, line
-					509, in dispatch
+					511, in dispatch
 
 
-					<div class="context" id="c2174290525440">
+					<div class="context" id="c2107879544576">
 
-						<ol start="502" class="pre-context" id="pre2174290525440">
+						<ol start="504" class="pre-context" id="pre2107879544576">
 
-							<li onclick="toggle('pre2174290525440', 'post2174290525440')">
-								<pre>                                  self.http_method_not_allowed)</pre>
-							</li>
-
-							<li onclick="toggle('pre2174290525440', 'post2174290525440')">
-								<pre>            else:</pre>
-							</li>
-
-							<li onclick="toggle('pre2174290525440', 'post2174290525440')">
+							<li onclick="toggle('pre2107879544576', 'post2107879544576')">
 								<pre>                handler = self.http_method_not_allowed</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290525440', 'post2174290525440')">
+							<li onclick="toggle('pre2107879544576', 'post2107879544576')">
 								<pre></pre>
 							</li>
 
-							<li onclick="toggle('pre2174290525440', 'post2174290525440')">
+							<li onclick="toggle('pre2107879544576', 'post2107879544576')">
 								<pre>            response = handler(request, *args, **kwargs)</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290525440', 'post2174290525440')">
+							<li onclick="toggle('pre2107879544576', 'post2107879544576')">
 								<pre></pre>
 							</li>
 
-							<li onclick="toggle('pre2174290525440', 'post2174290525440')">
+							<li onclick="toggle('pre2107879544576', 'post2107879544576')">
 								<pre>        except Exception as exc:</pre>
 							</li>
 
-						</ol>
+							<li onclick="toggle('pre2107879544576', 'post2107879544576')">
+								<pre>            response = self.handle_exception(exc)</pre>
+							</li>
 
-						<ol start="509" class="context-line">
-							<li onclick="toggle('pre2174290525440', 'post2174290525440')">
-								<pre>            response = self.handle_exception(exc)</pre> <span>…</span></li>
-						</ol>
-
-						<ol start='510' class="post-context" id="post2174290525440">
-
-							<li onclick="toggle('pre2174290525440', 'post2174290525440')">
+							<li onclick="toggle('pre2107879544576', 'post2107879544576')">
 								<pre></pre>
 							</li>
 
-							<li onclick="toggle('pre2174290525440', 'post2174290525440')">
-								<pre>        self.response = self.finalize_response(request, response, *args, **kwargs)</pre>
-							</li>
+						</ol>
 
-							<li onclick="toggle('pre2174290525440', 'post2174290525440')">
+						<ol start="511" class="context-line">
+							<li onclick="toggle('pre2107879544576', 'post2107879544576')">
+								<pre>        self.response = self.finalize_response(request, response, *args, **kwargs)</pre>
+								<span>…</span></li>
+						</ol>
+
+						<ol start='512' class="post-context" id="post2107879544576">
+
+							<li onclick="toggle('pre2107879544576', 'post2107879544576')">
 								<pre>        return self.response</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290525440', 'post2174290525440')">
+							<li onclick="toggle('pre2107879544576', 'post2107879544576')">
 								<pre></pre>
 							</li>
 
-							<li onclick="toggle('pre2174290525440', 'post2174290525440')">
+							<li onclick="toggle('pre2107879544576', 'post2107879544576')">
 								<pre>    def options(self, request, *args, **kwargs):</pre>
 							</li>
 
-							<li onclick="toggle('pre2174290525440', 'post2174290525440')">
+							<li onclick="toggle('pre2107879544576', 'post2107879544576')">
+								<pre>        &quot;&quot;&quot;</pre>
+							</li>
+
+							<li onclick="toggle('pre2107879544576', 'post2107879544576')">
+								<pre>        Handler method for HTTP &#x27;OPTIONS&#x27; request.</pre>
+							</li>
+
+							<li onclick="toggle('pre2107879544576', 'post2107879544576')">
 								<pre>        &quot;&quot;&quot;</pre>
 							</li>
 
@@ -981,11 +984,11 @@
 
 					<div class="commands">
 
-						<a href="#" onclick="return varToggle(this, '2174290525440')"><span>&#x25b6;</span> Local
+						<a href="#" onclick="return varToggle(this, '2107879544576')"><span>&#x25b6;</span> Local
 							vars</a>
 
 					</div>
-					<table class="vars" id="v2174290525440">
+					<table class="vars" id="v2107879544576">
 						<thead>
 							<tr>
 								<th>Variable</th>
@@ -1004,7 +1007,7 @@
 							<tr>
 								<td>handler</td>
 								<td class="code">
-									<pre>&lt;bound method GetTrack.get of &lt;databaseApp.views.GetTrack object at 0x000001FA3DE7BFD0&gt;&gt;</pre>
+									<pre>&lt;bound method ResourceActions.get of &lt;databaseApp.views.ResourceActions object at 0x000001EAC76F7850&gt;&gt;</pre>
 								</td>
 							</tr>
 
@@ -1018,135 +1021,7 @@
 							<tr>
 								<td>request</td>
 								<td class="code">
-									<pre>&lt;rest_framework.request.Request: GET &#x27;/getTrack/?id=LP561&#x27;&gt;</pre>
-								</td>
-							</tr>
-
-							<tr>
-								<td>self</td>
-								<td class="code">
-									<pre>&lt;databaseApp.views.GetTrack object at 0x000001FA3DE7BFD0&gt;</pre>
-								</td>
-							</tr>
-
-						</tbody>
-					</table>
-
-				</li>
-
-
-				<li class="frame user">
-					<code class="fname">D:\ProgramFiles\Anaconda\lib\site-packages\rest_framework\views.py</code>, line
-					469, in handle_exception
-
-
-					<div class="context" id="c2174291957376">
-
-						<ol start="462" class="pre-context" id="pre2174291957376">
-
-							<li onclick="toggle('pre2174291957376', 'post2174291957376')">
-								<pre></pre>
-							</li>
-
-							<li onclick="toggle('pre2174291957376', 'post2174291957376')">
-								<pre>        exception_handler = self.get_exception_handler()</pre>
-							</li>
-
-							<li onclick="toggle('pre2174291957376', 'post2174291957376')">
-								<pre></pre>
-							</li>
-
-							<li onclick="toggle('pre2174291957376', 'post2174291957376')">
-								<pre>        context = self.get_exception_handler_context()</pre>
-							</li>
-
-							<li onclick="toggle('pre2174291957376', 'post2174291957376')">
-								<pre>        response = exception_handler(exc, context)</pre>
-							</li>
-
-							<li onclick="toggle('pre2174291957376', 'post2174291957376')">
-								<pre></pre>
-							</li>
-
-							<li onclick="toggle('pre2174291957376', 'post2174291957376')">
-								<pre>        if response is None:</pre>
-							</li>
-
-						</ol>
-
-						<ol start="469" class="context-line">
-							<li onclick="toggle('pre2174291957376', 'post2174291957376')">
-								<pre>            self.raise_uncaught_exception(exc)</pre> <span>…</span></li>
-						</ol>
-
-						<ol start='470' class="post-context" id="post2174291957376">
-
-							<li onclick="toggle('pre2174291957376', 'post2174291957376')">
-								<pre></pre>
-							</li>
-
-							<li onclick="toggle('pre2174291957376', 'post2174291957376')">
-								<pre>        response.exception = True</pre>
-							</li>
-
-							<li onclick="toggle('pre2174291957376', 'post2174291957376')">
-								<pre>        return response</pre>
-							</li>
-
-							<li onclick="toggle('pre2174291957376', 'post2174291957376')">
-								<pre></pre>
-							</li>
-
-							<li onclick="toggle('pre2174291957376', 'post2174291957376')">
-								<pre>    def raise_uncaught_exception(self, exc):</pre>
-							</li>
-
-							<li onclick="toggle('pre2174291957376', 'post2174291957376')">
-								<pre>        if settings.DEBUG:</pre>
-							</li>
-
-						</ol>
-
-					</div>
-
-
-
-					<div class="commands">
-
-						<a href="#" onclick="return varToggle(this, '2174291957376')"><span>&#x25b6;</span> Local
-							vars</a>
-
-					</div>
-					<table class="vars" id="v2174291957376">
-						<thead>
-							<tr>
-								<th>Variable</th>
-								<th>Value</th>
-							</tr>
-						</thead>
-						<tbody>
-
-							<tr>
-								<td>context</td>
-								<td class="code">
-									<pre>{&#x27;args&#x27;: (),
- &#x27;kwargs&#x27;: {},
- &#x27;request&#x27;: &lt;rest_framework.request.Request: GET &#x27;/getTrack/?id=LP561&#x27;&gt;,
- &#x27;view&#x27;: &lt;databaseApp.views.GetTrack object at 0x000001FA3DE7BFD0&gt;}</pre>
-								</td>
-							</tr>
-
-							<tr>
-								<td>exc</td>
-								<td class="code">
-									<pre>AttributeError(&quot;&#x27;TrackRoots&#x27; object has no attribute &#x27;update&#x27;&quot;)</pre>
-								</td>
-							</tr>
-
-							<tr>
-								<td>exception_handler</td>
-								<td class="code">
-									<pre>&lt;function exception_handler at 0x000001FA3DA09E50&gt;</pre>
+									<pre>&lt;rest_framework.request.Request: GET &#x27;/resourceAction/?id=3&amp;action=view&#x27;&gt;</pre>
 								</td>
 							</tr>
 
@@ -1160,7 +1035,7 @@
 							<tr>
 								<td>self</td>
 								<td class="code">
-									<pre>&lt;databaseApp.views.GetTrack object at 0x000001FA3DE7BFD0&gt;</pre>
+									<pre>&lt;databaseApp.views.ResourceActions object at 0x000001EAC76F7850&gt;</pre>
 								</td>
 							</tr>
 
@@ -1172,204 +1047,72 @@
 
 				<li class="frame user">
 					<code class="fname">D:\ProgramFiles\Anaconda\lib\site-packages\rest_framework\views.py</code>, line
-					480, in raise_uncaught_exception
+					423, in finalize_response
 
 
-					<div class="context" id="c2174292215872">
+					<div class="context" id="c2107879358848">
 
-						<ol start="473" class="pre-context" id="pre2174292215872">
+						<ol start="416" class="pre-context" id="pre2107879358848">
 
-							<li onclick="toggle('pre2174292215872', 'post2174292215872')">
+							<li onclick="toggle('pre2107879358848', 'post2107879358848')">
+								<pre>        self.check_throttles(request)</pre>
+							</li>
+
+							<li onclick="toggle('pre2107879358848', 'post2107879358848')">
 								<pre></pre>
 							</li>
 
-							<li onclick="toggle('pre2174292215872', 'post2174292215872')">
-								<pre>    def raise_uncaught_exception(self, exc):</pre>
+							<li onclick="toggle('pre2107879358848', 'post2107879358848')">
+								<pre>    def finalize_response(self, request, response, *args, **kwargs):</pre>
 							</li>
 
-							<li onclick="toggle('pre2174292215872', 'post2174292215872')">
-								<pre>        if settings.DEBUG:</pre>
-							</li>
-
-							<li onclick="toggle('pre2174292215872', 'post2174292215872')">
-								<pre>            request = self.request</pre>
-							</li>
-
-							<li onclick="toggle('pre2174292215872', 'post2174292215872')">
-								<pre>            renderer_format = getattr(request.accepted_renderer, &#x27;format&#x27;)</pre>
-							</li>
-
-							<li onclick="toggle('pre2174292215872', 'post2174292215872')">
-								<pre>            use_plaintext_traceback = renderer_format not in (&#x27;html&#x27;, &#x27;api&#x27;, &#x27;admin&#x27;)</pre>
-							</li>
-
-							<li onclick="toggle('pre2174292215872', 'post2174292215872')">
-								<pre>            request.force_plaintext_errors(use_plaintext_traceback)</pre>
-							</li>
-
-						</ol>
-
-						<ol start="480" class="context-line">
-							<li onclick="toggle('pre2174292215872', 'post2174292215872')">
-								<pre>        raise exc</pre> <span>…</span></li>
-						</ol>
-
-						<ol start='481' class="post-context" id="post2174292215872">
-
-							<li onclick="toggle('pre2174292215872', 'post2174292215872')">
-								<pre></pre>
-							</li>
-
-							<li onclick="toggle('pre2174292215872', 'post2174292215872')">
-								<pre>    # Note: Views are made CSRF exempt from within `as_view` as to prevent</pre>
-							</li>
-
-							<li onclick="toggle('pre2174292215872', 'post2174292215872')">
-								<pre>    # accidental removal of this exemption in cases where `dispatch` needs to</pre>
-							</li>
-
-							<li onclick="toggle('pre2174292215872', 'post2174292215872')">
-								<pre>    # be overridden.</pre>
-							</li>
-
-							<li onclick="toggle('pre2174292215872', 'post2174292215872')">
-								<pre>    def dispatch(self, request, *args, **kwargs):</pre>
-							</li>
-
-							<li onclick="toggle('pre2174292215872', 'post2174292215872')">
+							<li onclick="toggle('pre2107879358848', 'post2107879358848')">
 								<pre>        &quot;&quot;&quot;</pre>
 							</li>
 
-						</ol>
-
-					</div>
-
-
-
-					<div class="commands">
-
-						<a href="#" onclick="return varToggle(this, '2174292215872')"><span>&#x25b6;</span> Local
-							vars</a>
-
-					</div>
-					<table class="vars" id="v2174292215872">
-						<thead>
-							<tr>
-								<th>Variable</th>
-								<th>Value</th>
-							</tr>
-						</thead>
-						<tbody>
-
-							<tr>
-								<td>exc</td>
-								<td class="code">
-									<pre>AttributeError(&quot;&#x27;TrackRoots&#x27; object has no attribute &#x27;update&#x27;&quot;)</pre>
-								</td>
-							</tr>
-
-							<tr>
-								<td>renderer_format</td>
-								<td class="code">
-									<pre>&#x27;json&#x27;</pre>
-								</td>
-							</tr>
-
-							<tr>
-								<td>request</td>
-								<td class="code">
-									<pre>&lt;rest_framework.request.Request: GET &#x27;/getTrack/?id=LP561&#x27;&gt;</pre>
-								</td>
-							</tr>
-
-							<tr>
-								<td>self</td>
-								<td class="code">
-									<pre>&lt;databaseApp.views.GetTrack object at 0x000001FA3DE7BFD0&gt;</pre>
-								</td>
-							</tr>
-
-							<tr>
-								<td>use_plaintext_traceback</td>
-								<td class="code">
-									<pre>True</pre>
-								</td>
-							</tr>
-
-						</tbody>
-					</table>
-
-				</li>
-
-
-				<li class="frame user">
-					<code class="fname">D:\ProgramFiles\Anaconda\lib\site-packages\rest_framework\views.py</code>, line
-					506, in dispatch
-
-
-					<div class="context" id="c2174292651904">
-
-						<ol start="499" class="pre-context" id="pre2174292651904">
-
-							<li onclick="toggle('pre2174292651904', 'post2174292651904')">
-								<pre>            # Get the appropriate handler method</pre>
+							<li onclick="toggle('pre2107879358848', 'post2107879358848')">
+								<pre>        Returns the final response object.</pre>
 							</li>
 
-							<li onclick="toggle('pre2174292651904', 'post2174292651904')">
-								<pre>            if request.method.lower() in self.http_method_names:</pre>
+							<li onclick="toggle('pre2107879358848', 'post2107879358848')">
+								<pre>        &quot;&quot;&quot;</pre>
 							</li>
 
-							<li onclick="toggle('pre2174292651904', 'post2174292651904')">
-								<pre>                handler = getattr(self, request.method.lower(),</pre>
-							</li>
-
-							<li onclick="toggle('pre2174292651904', 'post2174292651904')">
-								<pre>                                  self.http_method_not_allowed)</pre>
-							</li>
-
-							<li onclick="toggle('pre2174292651904', 'post2174292651904')">
-								<pre>            else:</pre>
-							</li>
-
-							<li onclick="toggle('pre2174292651904', 'post2174292651904')">
-								<pre>                handler = self.http_method_not_allowed</pre>
-							</li>
-
-							<li onclick="toggle('pre2174292651904', 'post2174292651904')">
-								<pre></pre>
+							<li onclick="toggle('pre2107879358848', 'post2107879358848')">
+								<pre>        # Make the error obvious if a proper response is not returned</pre>
 							</li>
 
 						</ol>
 
-						<ol start="506" class="context-line">
-							<li onclick="toggle('pre2174292651904', 'post2174292651904')">
-								<pre>            response = handler(request, *args, **kwargs)</pre> <span>…</span></li>
+						<ol start="423" class="context-line">
+							<li onclick="toggle('pre2107879358848', 'post2107879358848')">
+								<pre>        assert isinstance(response, HttpResponseBase), (</pre> <span>…</span></li>
 						</ol>
 
-						<ol start='507' class="post-context" id="post2174292651904">
+						<ol start='424' class="post-context" id="post2107879358848">
 
-							<li onclick="toggle('pre2174292651904', 'post2174292651904')">
+							<li onclick="toggle('pre2107879358848', 'post2107879358848')">
+								<pre>            &#x27;Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` &#x27;</pre>
+							</li>
+
+							<li onclick="toggle('pre2107879358848', 'post2107879358848')">
+								<pre>            &#x27;to be returned from the view, but received a `%s`&#x27;</pre>
+							</li>
+
+							<li onclick="toggle('pre2107879358848', 'post2107879358848')">
+								<pre>            % type(response)</pre>
+							</li>
+
+							<li onclick="toggle('pre2107879358848', 'post2107879358848')">
+								<pre>        )</pre>
+							</li>
+
+							<li onclick="toggle('pre2107879358848', 'post2107879358848')">
 								<pre></pre>
 							</li>
 
-							<li onclick="toggle('pre2174292651904', 'post2174292651904')">
-								<pre>        except Exception as exc:</pre>
-							</li>
-
-							<li onclick="toggle('pre2174292651904', 'post2174292651904')">
-								<pre>            response = self.handle_exception(exc)</pre>
-							</li>
-
-							<li onclick="toggle('pre2174292651904', 'post2174292651904')">
-								<pre></pre>
-							</li>
-
-							<li onclick="toggle('pre2174292651904', 'post2174292651904')">
-								<pre>        self.response = self.finalize_response(request, response, *args, **kwargs)</pre>
-							</li>
-
-							<li onclick="toggle('pre2174292651904', 'post2174292651904')">
-								<pre>        return self.response</pre>
+							<li onclick="toggle('pre2107879358848', 'post2107879358848')">
+								<pre>        if isinstance(response, Response):</pre>
 							</li>
 
 						</ol>
@@ -1380,143 +1123,11 @@
 
 					<div class="commands">
 
-						<a href="#" onclick="return varToggle(this, '2174292651904')"><span>&#x25b6;</span> Local
+						<a href="#" onclick="return varToggle(this, '2107879358848')"><span>&#x25b6;</span> Local
 							vars</a>
 
 					</div>
-					<table class="vars" id="v2174292651904">
-						<thead>
-							<tr>
-								<th>Variable</th>
-								<th>Value</th>
-							</tr>
-						</thead>
-						<tbody>
-
-							<tr>
-								<td>args</td>
-								<td class="code">
-									<pre>()</pre>
-								</td>
-							</tr>
-
-							<tr>
-								<td>handler</td>
-								<td class="code">
-									<pre>&lt;bound method GetTrack.get of &lt;databaseApp.views.GetTrack object at 0x000001FA3DE7BFD0&gt;&gt;</pre>
-								</td>
-							</tr>
-
-							<tr>
-								<td>kwargs</td>
-								<td class="code">
-									<pre>{}</pre>
-								</td>
-							</tr>
-
-							<tr>
-								<td>request</td>
-								<td class="code">
-									<pre>&lt;rest_framework.request.Request: GET &#x27;/getTrack/?id=LP561&#x27;&gt;</pre>
-								</td>
-							</tr>
-
-							<tr>
-								<td>self</td>
-								<td class="code">
-									<pre>&lt;databaseApp.views.GetTrack object at 0x000001FA3DE7BFD0&gt;</pre>
-								</td>
-							</tr>
-
-						</tbody>
-					</table>
-
-				</li>
-
-
-				<li class="frame user">
-					<code class="fname">D:\Projects\neutonDatabase\databaseApp\views.py</code>, line 326, in get
-
-
-					<div class="context" id="c2174288742336">
-
-						<ol start="319" class="pre-context" id="pre2174288742336">
-
-							<li onclick="toggle('pre2174288742336', 'post2174288742336')">
-								<pre>    def get(self, request, *args, **kwargs):</pre>
-							</li>
-
-							<li onclick="toggle('pre2174288742336', 'post2174288742336')">
-								<pre>        globals()</pre>
-							</li>
-
-							<li onclick="toggle('pre2174288742336', 'post2174288742336')">
-								<pre>        rootId = request.GET[&#x27;id&#x27;]</pre>
-							</li>
-
-							<li onclick="toggle('pre2174288742336', 'post2174288742336')">
-								<pre>        track = {}</pre>
-							</li>
-
-							<li onclick="toggle('pre2174288742336', 'post2174288742336')">
-								<pre>        print(rootId, &quot;========================================&quot;)</pre>
-							</li>
-
-							<li onclick="toggle('pre2174288742336', 'post2174288742336')">
-								<pre>        if rootId in allRoots:</pre>
-							</li>
-
-							<li onclick="toggle('pre2174288742336', 'post2174288742336')">
-								<pre>            likes = models.TrackRoots.objects.get(selfId=rootId).likes</pre>
-							</li>
-
-						</ol>
-
-						<ol start="326" class="context-line">
-							<li onclick="toggle('pre2174288742336', 'post2174288742336')">
-								<pre>            models.TrackRoots.objects.get(selfId=rootId).update(likes=likes+1)</pre>
-								<span>…</span></li>
-						</ol>
-
-						<ol start='327' class="post-context" id="post2174288742336">
-
-							<li onclick="toggle('pre2174288742336', 'post2174288742336')">
-								<pre>            mappings = models.Mappings.objects.filter(root__selfId=rootId)</pre>
-							</li>
-
-							<li onclick="toggle('pre2174288742336', 'post2174288742336')">
-								<pre>        else:</pre>
-							</li>
-
-							<li onclick="toggle('pre2174288742336', 'post2174288742336')">
-								<pre>            node = models.TrackNodes.objects.get(selfId=rootId)</pre>
-							</li>
-
-							<li onclick="toggle('pre2174288742336', 'post2174288742336')">
-								<pre>            mappings = models.Mappings.objects.filter(root__selfId=node.root.selfId)</pre>
-							</li>
-
-							<li onclick="toggle('pre2174288742336', 'post2174288742336')">
-								<pre>        # nodes = models.TrackNodes.objects.filter(</pre>
-							</li>
-
-							<li onclick="toggle('pre2174288742336', 'post2174288742336')">
-								<pre>        #     root=models.TrackRoots.objects.get(selfId=rootId))</pre>
-							</li>
-
-						</ol>
-
-					</div>
-
-
-
-					<div class="commands">
-
-						<a href="#" onclick="return varToggle(this, '2174288742336')"><span>&#x25b6;</span> Local
-							vars</a>
-
-					</div>
-					<table class="vars" id="v2174288742336">
+					<table class="vars" id="v2107879358848">
 						<thead>
 							<tr>
 								<th>Variable</th>
@@ -1540,37 +1151,23 @@
 							</tr>
 
 							<tr>
-								<td>likes</td>
-								<td class="code">
-									<pre>0</pre>
-								</td>
-							</tr>
-
-							<tr>
 								<td>request</td>
 								<td class="code">
-									<pre>&lt;rest_framework.request.Request: GET &#x27;/getTrack/?id=LP561&#x27;&gt;</pre>
+									<pre>&lt;rest_framework.request.Request: GET &#x27;/resourceAction/?id=3&amp;action=view&#x27;&gt;</pre>
 								</td>
 							</tr>
 
 							<tr>
-								<td>rootId</td>
+								<td>response</td>
 								<td class="code">
-									<pre>&#x27;LP561&#x27;</pre>
+									<pre>None</pre>
 								</td>
 							</tr>
 
 							<tr>
 								<td>self</td>
 								<td class="code">
-									<pre>&lt;databaseApp.views.GetTrack object at 0x000001FA3DE7BFD0&gt;</pre>
-								</td>
-							</tr>
-
-							<tr>
-								<td>track</td>
-								<td class="code">
-									<pre>{}</pre>
+									<pre>&lt;databaseApp.views.ResourceActions object at 0x000001EAC76F7850&gt;</pre>
 								</td>
 							</tr>
 
@@ -1586,7 +1183,7 @@
 			<div id="pastebinTraceback" class="pastebin">
 				<input type="hidden" name="language" value="PythonConsole">
 				<input type="hidden" name="title"
-      value="AttributeError at /getTrack/">
+      value="AssertionError at /resourceAction/">
 				<input type="hidden" name="source" value="Django Dpaste Agent">
 				<input type="hidden" name="poster" value="Django">
 				<textarea name="content" id="traceback_area" cols="140" rows="25">
@@ -1594,7 +1191,7 @@ Environment:
 
 
 Request Method: GET
-Request URL: http://127.0.0.1:8000/getTrack/?id=LP561
+Request URL: http://127.0.0.1:8000/resourceAction/?id=3&amp;action=view
 
 Django Version: 3.1.4
 Python Version: 3.8.5
@@ -1631,19 +1228,13 @@ Traceback (most recent call last):
     return view_func(*args, **kwargs)
   File "D:\ProgramFiles\Anaconda\lib\site-packages\django\views\generic\base.py", line 70, in view
     return self.dispatch(request, *args, **kwargs)
-  File "D:\ProgramFiles\Anaconda\lib\site-packages\rest_framework\views.py", line 509, in dispatch
-    response = self.handle_exception(exc)
-  File "D:\ProgramFiles\Anaconda\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "D:\ProgramFiles\Anaconda\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
-    raise exc
-  File "D:\ProgramFiles\Anaconda\lib\site-packages\rest_framework\views.py", line 506, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "D:\Projects\neutonDatabase\databaseApp\views.py", line 326, in get
-    models.TrackRoots.objects.get(selfId=rootId).update(likes=likes+1)
+  File "D:\ProgramFiles\Anaconda\lib\site-packages\rest_framework\views.py", line 511, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+  File "D:\ProgramFiles\Anaconda\lib\site-packages\rest_framework\views.py", line 423, in finalize_response
+    assert isinstance(response, HttpResponseBase), (
 
-Exception Type: AttributeError at /getTrack/
-Exception Value: &#x27;TrackRoots&#x27; object has no attribute &#x27;update&#x27;
+Exception Type: AssertionError at /resourceAction/
+Exception Value: Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `&lt;class &#x27;NoneType&#x27;&gt;`
 </textarea>
 				<br><br>
 				<input type="submit" value="Share this traceback on a public website">
@@ -1676,7 +1267,14 @@ Exception Value: &#x27;TrackRoots&#x27; object has no attribute &#x27;update&#x2
 				<tr>
 					<td>id</td>
 					<td class="code">
-						<pre>&#x27;LP561&#x27;</pre>
+						<pre>&#x27;3&#x27;</pre>
+					</td>
+				</tr>
+
+				<tr>
+					<td>action</td>
+					<td class="code">
+						<pre>&#x27;view&#x27;</pre>
 					</td>
 				</tr>
 
@@ -1972,7 +1570,7 @@ Exception Value: &#x27;TrackRoots&#x27; object has no attribute &#x27;update&#x2
 				<tr>
 					<td>PATH_INFO</td>
 					<td class="code">
-						<pre>&#x27;/getTrack/&#x27;</pre>
+						<pre>&#x27;/resourceAction/&#x27;</pre>
 					</td>
 				</tr>
 
@@ -2050,7 +1648,7 @@ Exception Value: &#x27;TrackRoots&#x27; object has no attribute &#x27;update&#x2
 				<tr>
 					<td>QUERY_STRING</td>
 					<td class="code">
-						<pre>&#x27;id=LP561&#x27;</pre>
+						<pre>&#x27;id=3&amp;action=view&#x27;</pre>
 					</td>
 				</tr>
 
@@ -2246,7 +1844,7 @@ Exception Value: &#x27;TrackRoots&#x27; object has no attribute &#x27;update&#x2
 				<tr>
 					<td>wsgi.input</td>
 					<td class="code">
-						<pre>&lt;django.core.handlers.wsgi.LimitedStream object at 0x000001FA3DE05EB0&gt;</pre>
+						<pre>&lt;django.core.handlers.wsgi.LimitedStream object at 0x000001EAC773D070&gt;</pre>
 					</td>
 				</tr>
 
