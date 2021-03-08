@@ -12,12 +12,14 @@ from rest_framework.response import Response
 allRoots = list()
 allNodes = list()
 
+
 def getMappingL2(obj):
     return obj.l2
 
 
 def getMappingL1(obj):
     return obj.l1
+
 
 def getSelfId(obj):
     return obj.selfId
@@ -26,7 +28,7 @@ def getSelfId(obj):
 def getRoots(id):
 
     return serializers.RootSerializer(models.TrackRoots.objects.get(selfId=id)).data
-    
+
 
 def globals():
     global allRoots
@@ -114,9 +116,6 @@ class NewNode(View):
             connectBetween.save()
 
         return redirect('/addNode/')
-
-
-
 
 
 def get():
@@ -322,11 +321,15 @@ class GetTrack(APIView):
         track = {}
         print(rootId, "========================================")
         if rootId in allRoots:
-
+            obj = models.TrackRoots.objects.get(selfId=rootId)
+            obj.views += 1
+            obj.save()
+            # models.TrackRoots.objects.get(selfId=rootId).update(likes=likes+1)
             mappings = models.Mappings.objects.filter(root__selfId=rootId)
         else:
             node = models.TrackNodes.objects.get(selfId=rootId)
-            mappings = models.Mappings.objects.filter(root__selfId=node.root.selfId)
+            mappings = models.Mappings.objects.filter(
+                root__selfId=node.root.selfId)
         # nodes = models.TrackNodes.objects.filter(
         #     root=models.TrackRoots.objects.get(selfId=rootId))
 
@@ -411,7 +414,8 @@ class GetTrack(APIView):
 
 class ResourcesView(APIView):
     def post(self, request, *args, **kwargs):
-        track = models.TrackRoots.objects.get(selfId=request.POST.get('course'))
+        track = models.TrackRoots.objects.get(
+            selfId=request.POST.get('course'))
         obj = models.Resources(
             avatar=request.FILES.get('avatar'),
             username=request.POST.get('username'),
@@ -426,32 +430,50 @@ class ResourcesView(APIView):
         obj.save()
 
         return JsonResponse({'result': 'success'}, safe=False)
-    
+
     def get(self, request, *args, **kwargs):
-            if request.GET.get('id'):
-                print("in id")
-                objs = models.Resources.objects.filter(course__selfId=request.GET.get('id'))
-                ouptput = []
-                for i in objs:
-                    ouptput.append(serializers.ResourcesSerializer(i).data)
-                return JsonResponse(ouptput, safe=False)
-            output=[]
-            objs = models.Resources.objects.all()
-            if len(objs)>0:
-                print('not in id')
-                for i in objs:
-                    output.append(serializers.ResourcesSerializer(i).data)
-                    return JsonResponse(output, safe=False)
-            else:
-                print('in else')
-                return Response({'result': 'No Resource Available'}, status=status.HTTP_404_NOT_FOUND)
+        if request.GET.get('id'):
+            print("in id")
+            objs = models.Resources.objects.filter(
+                course__selfId=request.GET.get('id'))
+            ouptput = []
+            for i in objs:
+                ouptput.append(serializers.ResourcesSerializer(i).data)
+            return JsonResponse(ouptput, safe=False)
+        output = []
+        objs = models.Resources.objects.all()
+        if len(objs) > 0:
+            print('not in id')
+            for i in objs:
+                output.append(serializers.ResourcesSerializer(i).data)
+                return JsonResponse(output, safe=False)
+        else:
+            print('in else')
+            return Response({'result': 'No Resource Available'}, status=status.HTTP_404_NOT_FOUND)
 
 
 class GetMetaView(APIView):
     def get(self, request, *args, **kwargs):
-        output=[]
+        output = []
         for i in models.TrackRoots.objects.all():
             output.append(serializers.RootSerializer(i).data)
         return JsonResponse(output, safe=False)
+
+
+class TrackLikes(APIView):
+    def get(self, request, *args, **kwargs):
+        root = models.TrackRoots.objects.get(selfId=request.GET['id'])
+        if request.GET['action'] == 'like':
+            root.likes += 1
+            root.save()
+            return Response({'result': 'Liked'}, status=status.HTTP_200_OK)
+        elif request.GET['action'] == 'dislike':
+            root.likes -= 1
+            root.save()
+            return Response({'result': 'Disliked'}, status=status.HTTP_200_OK)
+        else:
+            return Response({'result': 'Unknown Action'}, status=status.HTTP_400_BAD_REQUEST)
+
+
 
 
