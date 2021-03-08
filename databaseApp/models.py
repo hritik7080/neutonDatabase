@@ -62,6 +62,7 @@ class Resources(models.Model):
     desc = models.TextField(max_length=6000)
     views=models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
+    isTopic = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
