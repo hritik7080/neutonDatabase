@@ -1,4 +1,3 @@
-
 import jwt
 from rest_framework import authentication, exceptions
 from django.conf import settings

@@ -66,7 +66,6 @@ class Resources(models.Model):
     difficulty = models.CharField(max_length=500, null=True)
     title = models.CharField(max_length=500)
     desc = models.TextField(max_length=6000)
-
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
     isTopic = models.BooleanField(default=True)

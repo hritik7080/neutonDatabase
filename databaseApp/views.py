@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 from rest_framework import status
 from django.http import JsonResponse
 from rest_framework.response import Response
+from django.db.models import Q
 from authentication import models as auth_model
 
 # Create your views here.
@@ -512,3 +513,13 @@ class ResourceActions(APIView):
             return Response({'result': 'Viewed'}, status=status.HTTP_200_OK)
         else:
             return Response({'result': 'Unknown Action'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+# class SearchEngine(APIView):
+#     def get(self, request, *args, **kwargs):
+#         category = models.
+#         return 
+
+#     def get(self, request, *args, **kwargs):
+        
+#         return  
