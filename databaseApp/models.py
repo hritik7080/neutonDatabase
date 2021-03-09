@@ -62,7 +62,7 @@ class Resources(models.Model):
     course = models.ForeignKey(TrackRoots, on_delete=models.CASCADE)
     link = models.TextField(max_length=6000)
     price = models.CharField(max_length=50)
-    shortName = models.CharField(max_length=500, null=True)
+    # shortName = models.CharField(max_length=500, null=True)
     difficulty = models.CharField(max_length=500, null=True)
     title = models.CharField(max_length=500)
     desc = models.TextField(max_length=6000)
@@ -73,3 +73,9 @@ class Resources(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Feedbacks(models.Model):
+    emailOrPhone = models.CharField(max_length=100, null=True)
+    suggestedTrack = models.CharField(max_length=1000, null=True)
+    feedback = models.TextField(max_length=6000)

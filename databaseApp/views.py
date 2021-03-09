@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render, redirect
 from django.views.generic import View
 import random
@@ -399,7 +400,7 @@ class GetTrack(APIView):
                 elif child[-1] == 'r' and _next[-1] == 'r':
                     parent = parents.pop()
                     print(parents)
-                    
+
                     parent = parents[-1]
                     child = _next
 
@@ -407,7 +408,6 @@ class GetTrack(APIView):
                     child = _next
             except:
                 break
-
 
             # print(track)
         output = track[rootId]
@@ -515,11 +515,17 @@ class ResourceActions(APIView):
             return Response({'result': 'Unknown Action'}, status=status.HTTP_400_BAD_REQUEST)
 
 
+class FeedbackView(APIView):
+    def post(self, request, *args, **kwargs):
+        obj = models.Feedbacks(emailOrPhone=request.POST.get(
+            'email'), suggestedTrack=request.POST.get('suggestion'), feedback=request.POST.get('feedback'))
+        obj.save()
+
+        return Response({'result': 'feedback saved'}, status=status.HTTP_200_OK)
+
+
 # class SearchEngine(APIView):
 #     def get(self, request, *args, **kwargs):
-#         category = models.
-#         return 
-
-#     def get(self, request, *args, **kwargs):
-        
-#         return  
+#         query = request.GET.get('query')
+#         category = models.TrackNodes.objects.filter(Q())
+#         return Response({'response': 'Learn'})

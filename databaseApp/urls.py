@@ -1,3 +1,4 @@
+from databaseApp.models import Feedbacks
 from django.contrib import admin
 from django.urls import path, include
 from . import views
@@ -9,5 +10,6 @@ urlpatterns = [
     path('resource/', views.ResourcesView.as_view(), name='get-resource'),
     path('getTrackMeta/', views.GetMetaView.as_view(), name='get-meta'),
     path('trackAction/', views.TrackLikes.as_view(), name='likes'),
-    path('resourceAction/', views.ResourceActions.as_view(), name='resource-like')
+    path('resourceAction/', views.ResourceActions.as_view(), name='resource-like'),
+    path('feedback/', views.FeedbackView.as_view(), name='feedback'),
 ]
