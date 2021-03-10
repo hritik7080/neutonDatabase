@@ -8,6 +8,7 @@ from django.contrib import auth
 import jwt
 from django.contrib.auth.models import User
 from . import models
+from databaseApp import models as main_model
 # Create your views here.
 
 
@@ -15,9 +16,17 @@ class RegisterView(GenericAPIView):
     serializer_class = UserSerializer
 
     def post(self, request):
-        serializer = UserSerializer(data=request.data)
+        serializer = UserSerializer(data={
+            'username': request.POST['username'],
+            'first_name': request.POST['first_name'],
+            'last_name': request.POST['last_name'],
+            'email': request.POST['email'],
+            'password': request.POST['password'],
+        })
         if serializer.is_valid():
             serializer.save()
+            details = main_model.UserDetails(user=User.objects.get(username=request.POST['username']), profession=request.POST['profession'])
+            details.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -41,6 +50,7 @@ class LoginView(GenericAPIView):
             data = {'user': serializer.data, 'token': auth_token}
             obj = models.IssuedTokens(user=user, token=auth_token)
             obj.save()
+            data['user']['professsion'] = main_model.UserDetails.objects.get(user__username=serializer.data['username']).profession
 
             return Response(data, status=status.HTTP_200_OK)
 
