@@ -527,7 +527,7 @@ class FeedbackView(APIView):
 class UsernameCheck(APIView):
     def get(self, request, *args, **kwargs):
         if User.objects.filter(username=request.GET.get('username')).exists():
-            return Response({'result': 'Sorry, Username Already Taken'}, status=status.HTTP_403_FORBIDDEN)
+            return Response({'result': 'Sorry, Username Already Taken'}, status=status.HTTP_409_CONFLICT)
         return Response({'result': 'Username Allowed'}, status=status.HTTP_200_OK)
 
 class EmailCheck(APIView):
