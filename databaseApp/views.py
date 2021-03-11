@@ -9,7 +9,7 @@ from django.http import JsonResponse
 from rest_framework.response import Response
 from django.db.models import Q
 from authentication import models as auth_model
-
+from django.contrib.auth.models import User
 # Create your views here.
 
 allRoots = list()
@@ -524,8 +524,21 @@ class FeedbackView(APIView):
         return Response({'result': 'feedback saved'}, status=status.HTTP_200_OK)
 
 
-# class SearchEngine(APIView):
-#     def get(self, request, *args, **kwargs):
-#         query = request.GET.get('query')
-#         category = models.TrackNodes.objects.filter(Q())
-#         return Response({'response': 'Learn'})
+class UsernameCheck(APIView):
+    def get(self, request, *args, **kwargs):
+        if User.objects.filter(username=request.GET.get('username')).exists():
+            return Response({'result': 'Sorry, Username Already Taken'}, status=status.HTTP_403_FORBIDDEN)
+        return Response({'result': 'Username Allowed'}, status=status.HTTP_200_OK)
+
+class EmailCheck(APIView):
+    def get(self, request, *args, **kwargs):
+        if User.objects.filter(email=request.GET.get('email')).exists():
+            return Response({'result': 'Email Aready Registered'}, status=status.HTTP_403_FORBIDDEN)
+        return Response({'result': 'Email Allowed'}, status=status.HTTP_200_OK)
+
+
+class SearchEngine(APIView):
+    def get(self, request, *args, **kwargs):
+        query = request.GET.get('query')
+        category = models.TrackNodes.objects.filter(Q())
+        return Response({'response': 'Learn'})

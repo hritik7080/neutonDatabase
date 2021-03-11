@@ -12,4 +12,6 @@ urlpatterns = [
     path('trackAction/', views.TrackLikes.as_view(), name='likes'),
     path('resourceAction/', views.ResourceActions.as_view(), name='resource-like'),
     path('feedback/', views.FeedbackView.as_view(), name='feedback'),
+    path('checkEmail/', views.EmailCheck.as_view(), name='email-check'),
+    path('checkUsername/', views.UsernameCheck.as_view(), name='username-check'),
 ]
