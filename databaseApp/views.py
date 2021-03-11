@@ -64,7 +64,7 @@ class NewTrack(View):
         request.session['newTrackId'] = _id
         request.session['nodes'] = 0
 
-        return redirect('/addNode/')
+        return redirect('add-node')
 
 
 class NewNode(View):
@@ -122,7 +122,7 @@ class NewNode(View):
                 root=root, l1=node.left, l2=node.right)
             connectBetween.save()
 
-        return redirect('/addNode/')
+        return redirect('add-node')
 
 
 def get():
@@ -540,5 +540,15 @@ class EmailCheck(APIView):
 class SearchEngine(APIView):
     def get(self, request, *args, **kwargs):
         query = request.GET.get('query')
-        category = models.TrackNodes.objects.filter(Q())
-        return Response({'response': 'Learn'})
+        roots = list(models.TrackRoots.objects.filter(Q(title__icontains=query) | Q(tags__contains=[query]) | Q(desc__icontains=query)))
+        nodes = list(models.TrackNodes.objects.filter(Q(title__icontains=query) | Q(tags__contains=[query]) | Q(desc__icontains=query)))
+        roots.extend(nodes)
+        output = list()
+        for i in roots:
+            output.append({'id': i.selfId,
+                            'title': i.title})
+        if output:
+            return Response(output, status=status.HTTP_200_OK)
+        return Response({'result': 'Not Found'}, status=status.HTTP_404_NOT_FOUND)
+
+

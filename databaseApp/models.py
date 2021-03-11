@@ -10,6 +10,7 @@ class TrackRoots(models.Model):
     desc = models.TextField(max_length=6000)
     left = models.TextField(max_length=500)
     right = models.TextField(max_length=500)
+    tags = ArrayField(models.CharField(max_length=500), null=True, blank=True)
     juniors = ArrayField(models.CharField(
         max_length=500), null=True, blank=True)
     seniors = ArrayField(models.CharField(
@@ -28,6 +29,7 @@ class TrackNodes(models.Model):
     desc = models.TextField(max_length=6000)
     left = models.TextField(max_length=500)
     right = models.TextField(max_length=500)
+    tags = ArrayField(models.CharField(max_length=500), null=True, blank=True)
 
     def __str__(self):
         return f"{self.root.title} : {self.title}"
