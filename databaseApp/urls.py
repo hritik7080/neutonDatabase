@@ -14,5 +14,6 @@ urlpatterns = [
     path('feedback/', views.FeedbackView.as_view(), name='feedback'),
     path('checkEmail/', views.EmailCheck.as_view(), name='email-check'),
     path('checkUsername/', views.UsernameCheck.as_view(), name='username-check'),
-    path('searchTrack/', views.SearchEngine.as_view(), name='search-track'),
+    path('searchTrack/', views.SearchTrack.as_view(), name='search-track'),
+    path('searchResources/', views.SearchResource.as_view(), name='search-track')
 ]

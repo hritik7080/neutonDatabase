@@ -537,7 +537,7 @@ class EmailCheck(APIView):
         return Response({'result': 'Email Allowed'}, status=status.HTTP_200_OK)
 
 
-class SearchEngine(APIView):
+class SearchTrack(APIView):
     def get(self, request, *args, **kwargs):
         query = request.GET.get('query')
         roots = list(models.TrackRoots.objects.filter(Q(title__icontains=query) | Q(tags__contains=[query]) | Q(desc__icontains=query)))
@@ -551,4 +551,16 @@ class SearchEngine(APIView):
             return Response(output, status=status.HTTP_200_OK)
         return Response({'result': 'Not Found'}, status=status.HTTP_404_NOT_FOUND)
 
+
+class SearchResource(APIView):
+    def get(self, request, *args, **kwargs):
+        query = request.GET.get('query')
+        resources = list(models.Resources.objects.filter(Q(title__icontains=query) | Q(tags__contains=[query]) | Q(desc__icontains=query)))
+        output = list()
+        for i in resources:
+            output.append({'id': i.id,
+                            'title': i.title})
+        if output:
+            return Response(output, status=status.HTTP_200_OK)
+        return Response({'result': 'Not Found'}, status=status.HTTP_404_NOT_FOUND)
 
