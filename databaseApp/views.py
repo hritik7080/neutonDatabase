@@ -533,7 +533,7 @@ class UsernameCheck(APIView):
 class EmailCheck(APIView):
     def get(self, request, *args, **kwargs):
         if User.objects.filter(email=request.GET.get('email')).exists():
-            return Response({'result': 'Email Aready Registered'}, status=status.HTTP_403_FORBIDDEN)
+            return Response({'result': 'Email Aready Registered'}, status=status.HTTP_409_CONFLICT)
         return Response({'result': 'Email Allowed'}, status=status.HTTP_200_OK)
 
 
