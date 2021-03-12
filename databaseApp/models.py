@@ -88,4 +88,4 @@ class UserDetails(models.Model):
     profession = models.CharField(max_length=100)
 
     def __str__(self):
-        return User.username
+        return self.user.username
