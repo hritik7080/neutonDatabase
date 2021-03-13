@@ -58,19 +58,19 @@ class Mappings(models.Model):
 
 
 class Resources(models.Model):
-    avatar = models.ImageField(upload_to='resourcesImages/')
+    avatar = models.CharField(max_length=100)# choice
     username = models.CharField(max_length=500)
     poster = models.ImageField(upload_to='resourcesImages/')
     course = models.ForeignKey(TrackRoots, on_delete=models.CASCADE)
     link = models.TextField(max_length=6000)
     price = models.CharField(max_length=50)
+    type = models.CharField(max_length=500, null=True, blank=True)
     # shortName = models.CharField(max_length=500, null=True)
     difficulty = models.CharField(max_length=500, null=True)
     title = models.CharField(max_length=500)
     desc = models.TextField(max_length=6000)
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
-    isTopic = models.BooleanField(default=True)
     tags = ArrayField(models.CharField(max_length=500, null=True), null=True)
 
     def __str__(self):

@@ -436,14 +436,16 @@ class ResourcesView(APIView):
         track = models.TrackRoots.objects.get(
             selfId=request.POST.get('course'))
         obj = models.Resources(
-            avatar=request.FILES.get('avatar'),
+            avatar=request.POST.get('avatar'),
             username=request.POST.get('username'),
             poster=request.FILES.get('poster'),
             course=track,
             link=request.POST.get('link'),
+            type=request.POST.get('type'),
             price=request.POST.get('price'),
             title=request.POST.get('title'),
-            desc=request.POST.get('desc')
+            desc=request.POST.get('desc'),
+            difficulty=request.POST.get('difficulty'),
         )
 
         obj.save()
