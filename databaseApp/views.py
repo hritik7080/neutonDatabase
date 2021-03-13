@@ -483,8 +483,8 @@ class GetMetaView(APIView):
 
 class TrackLikes(APIView):
     def get(self, request, *args, **kwargs):
-        if not isAuthenticated(request.GET.get('token')):
-            return Response({'result': 'Sorry, you are not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
+        # if not isAuthenticated(request.GET.get('token')):
+        #     return Response({'result': 'Sorry, you are not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
 
         root = models.TrackRoots.objects.get(selfId=request.GET['id'])
         if request.GET['action'] == 'like':
