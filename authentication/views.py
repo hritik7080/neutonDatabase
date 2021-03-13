@@ -48,7 +48,7 @@ class LoginView(GenericAPIView):
 
             serializer = UserSerializer(user)
 
-            data = {'user': serializer.data, 'token3': auth_token}
+            data = {'user': serializer.data, 'token': auth_token}
             obj = models.IssuedTokens(user=user)
             obj.save()
             data['user']['professsion'] = main_model.UserDetails.objects.get(
