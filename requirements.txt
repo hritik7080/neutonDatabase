@@ -12,4 +12,4 @@ django-cors-headers
 djangorestframework-simplejwt
 requests
 Pillow
-pyjwt
+PyJWT==1.7.1
