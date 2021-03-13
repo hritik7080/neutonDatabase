@@ -2,6 +2,8 @@ from django.conf import settings
 from django.shortcuts import render, redirect
 from django.views.generic import View
 import random
+
+import jwt
 from databaseApp import models, serializers
 from rest_framework.views import APIView
 from rest_framework import status
@@ -17,7 +19,11 @@ allNodes = list()
 
 
 def isAuthenticated(token):
-    return auth_model.IssuedTokens.objects.filter(token=token).exists()
+    username = jwt.decode(token, settings.JWT_SECRET_KEY)['username']
+    try:
+        return auth_model.IssuedTokens.objects.filter(user=User.objects.get(username=username)).exists()
+    except:
+        return False
 
 
 def getMappingL2(obj):
@@ -530,6 +536,7 @@ class UsernameCheck(APIView):
             return Response({'result': 'Sorry, Username Already Taken'}, status=status.HTTP_409_CONFLICT)
         return Response({'result': 'Username Allowed'}, status=status.HTTP_200_OK)
 
+
 class EmailCheck(APIView):
     def get(self, request, *args, **kwargs):
         if User.objects.filter(email=request.GET.get('email')).exists():
@@ -540,13 +547,15 @@ class EmailCheck(APIView):
 class SearchTrack(APIView):
     def get(self, request, *args, **kwargs):
         query = request.GET.get('query')
-        roots = list(models.TrackRoots.objects.filter(Q(title__icontains=query) | Q(tags__contains=[query]) | Q(desc__icontains=query)))
-        nodes = list(models.TrackNodes.objects.filter(Q(title__icontains=query) | Q(tags__contains=[query]) | Q(desc__icontains=query)))
+        roots = list(models.TrackRoots.objects.filter(Q(title__icontains=query) | Q(
+            tags__contains=[query]) | Q(desc__icontains=query)))
+        nodes = list(models.TrackNodes.objects.filter(Q(title__icontains=query) | Q(
+            tags__contains=[query]) | Q(desc__icontains=query)))
         roots.extend(nodes)
         output = list()
         for i in roots:
             output.append({'id': i.selfId,
-                            'title': i.title})
+                           'title': i.title})
         if output:
             return Response(output, status=status.HTTP_200_OK)
         return Response({'result': 'Not Found'}, status=status.HTTP_404_NOT_FOUND)
@@ -555,12 +564,12 @@ class SearchTrack(APIView):
 class SearchResource(APIView):
     def get(self, request, *args, **kwargs):
         query = request.GET.get('query')
-        resources = list(models.Resources.objects.filter(Q(title__icontains=query) | Q(tags__contains=[query]) | Q(desc__icontains=query)))
+        resources = list(models.Resources.objects.filter(Q(title__icontains=query) | Q(
+            tags__contains=[query]) | Q(desc__icontains=query)))
         output = list()
         for i in resources:
             output.append({'id': i.id,
-                            'title': i.title})
+                           'title': i.title})
         if output:
             return Response(output, status=status.HTTP_200_OK)
         return Response({'result': 'Not Found'}, status=status.HTTP_404_NOT_FOUND)
-

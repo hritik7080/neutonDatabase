@@ -25,7 +25,8 @@ class RegisterView(GenericAPIView):
         })
         if serializer.is_valid():
             serializer.save()
-            details = main_model.UserDetails(user=User.objects.get(username=request.POST['username']), profession=request.POST['profession'])
+            details = main_model.UserDetails(user=User.objects.get(
+                username=request.POST['username']), profession=request.POST['profession'])
             details.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
@@ -47,15 +48,17 @@ class LoginView(GenericAPIView):
 
             serializer = UserSerializer(user)
 
-            data = {'user': serializer.data, 'token': auth_token}
-            obj = models.IssuedTokens(user=user, token=auth_token)
+            data = {'user': serializer.data, 'token3': auth_token}
+            obj = models.IssuedTokens(user=user)
             obj.save()
-            data['user']['professsion'] = main_model.UserDetails.objects.get(user__username=serializer.data['username']).profession
+            data['user']['professsion'] = main_model.UserDetails.objects.get(
+                user__username=serializer.data['username']).profession
 
             return Response(data, status=status.HTTP_200_OK)
 
             # SEND RES
         return Response({'detail': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+
 
 class LogoutView(GenericAPIView):
 
@@ -63,3 +66,18 @@ class LogoutView(GenericAPIView):
 
         models.IssuedTokens.objects.get(token=request.POST['token']).delete()
         return Response({'result': "logged out"}, status=status.HTTP_200_OK)
+
+
+class ValidateToken(GenericAPIView):
+    def get(self, request, *args, **kwargs):
+        try:
+
+            username = jwt.decode(request.GET.get("token"),
+                                settings.JWT_SECRET_KEY)['username']
+            print(username)
+            if models.IssuedTokens.objects.filter(user__username=username).exists():
+                return Response({'result': 'Autherized'}, status=status.HTTP_200_OK)
+            else:
+                return Response({'result': 'Invalid Token'}, status=status.HTTP_401_UNAUTHORIZED)
+        except:
+            return Response({'result': 'Invalid Token'}, status=status.HTTP_401_UNAUTHORIZED)
