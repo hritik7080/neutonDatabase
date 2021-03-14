@@ -431,8 +431,8 @@ class GetTrack(APIView):
 
 class ResourcesView(APIView):
     def post(self, request, *args, **kwargs):
-        if not isAuthenticated(request.POST.get('token')):
-            return Response({'result': 'Sorry, you are not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
+        # if not isAuthenticated(request.POST.get('token')):
+        #     return Response({'result': 'Sorry, you are not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
         track = models.TrackRoots.objects.get(
             selfId=request.POST.get('course'))
         obj = models.Resources(
@@ -503,8 +503,8 @@ class TrackLikes(APIView):
 
 class ResourceActions(APIView):
     def get(self, request, *args, **kwargs):
-        if not isAuthenticated(request.GET.get('token')):
-            return Response({'result': 'Sorry, you are not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
+        # if not isAuthenticated(request.GET.get('token')):
+        #     return Response({'result': 'Sorry, you are not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
 
         resource = models.Resources.objects.get(id=request.GET['id'])
         if request.GET['action'] == 'like':
