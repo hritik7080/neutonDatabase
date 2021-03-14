@@ -6,7 +6,7 @@ from databaseApp import models
 class NodeSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.TrackNodes
-        fields = ["selfId", "title", "desc"]
+        fields = ["selfId", "title", "desc", 'likes', 'views']
 
 class RootSerializer(serializers.ModelSerializer):
     class Meta:
