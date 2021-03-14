@@ -487,18 +487,31 @@ class TrackLikes(APIView):
     def get(self, request, *args, **kwargs):
         # if not isAuthenticated(request.GET.get('token')):
         #     return Response({'result': 'Sorry, you are not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
-
-        root = models.TrackRoots.objects.get(selfId=request.GET['id'])
-        if request.GET['action'] == 'like':
-            root.likes += 1
-            root.save()
-            return Response({'result': 'Liked'}, status=status.HTTP_200_OK)
-        elif request.GET['action'] == 'dislike':
-            root.likes -= 1
-            root.save()
-            return Response({'result': 'Disliked'}, status=status.HTTP_200_OK)
+        globals()
+        if request.GET['id'] in allRoots:
+            root = models.TrackRoots.objects.get(selfId=request.GET['id'])
+            if request.GET['action'] == 'like':
+                root.likes += 1
+                root.save()
+                return Response({'result': 'Liked'}, status=status.HTTP_200_OK)
+            elif request.GET['action'] == 'dislike':
+                root.likes -= 1
+                root.save()
+                return Response({'result': 'Disliked'}, status=status.HTTP_200_OK)
+            else:
+                return Response({'result': 'Unknown Action'}, status=status.HTTP_400_BAD_REQUEST)
         else:
-            return Response({'result': 'Unknown Action'}, status=status.HTTP_400_BAD_REQUEST)
+            root = models.TrackNodes.objects.get(selfId=request.GET['id'])
+            if request.GET['action'] == 'like':
+                root.likes += 1
+                root.save()
+                return Response({'result': 'Liked'}, status=status.HTTP_200_OK)
+            elif request.GET['action'] == 'dislike':
+                root.likes -= 1
+                root.save()
+                return Response({'result': 'Disliked'}, status=status.HTTP_200_OK)
+            else:
+                return Response({'result': 'Unknown Action'}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class ResourceActions(APIView):
