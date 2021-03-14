@@ -341,6 +341,9 @@ class GetTrack(APIView):
             mappings = models.Mappings.objects.filter(root__selfId=rootId)
         else:
             node = models.TrackNodes.objects.get(selfId=rootId)
+            node.views +=1
+            node.save()
+            
             mappings = models.Mappings.objects.filter(
                 root__selfId=node.root.selfId)
         # nodes = models.TrackNodes.objects.filter(
