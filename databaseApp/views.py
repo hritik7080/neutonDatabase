@@ -453,8 +453,8 @@ class ResourcesView(APIView):
         return JsonResponse({'result': 'success'}, safe=False)
 
     def get(self, request, *args, **kwargs):
-        if not isAuthenticated(request.GET.get('token')):
-            return Response({'result': 'Sorry, you are not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
+        # if not isAuthenticated(request.GET.get('token')):
+        #     return Response({'result': 'Sorry, you are not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
         if request.GET.get('id'):
             print("in id")
             objs = models.Resources.objects.filter(
