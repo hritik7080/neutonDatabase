@@ -29,9 +29,12 @@ class TrackNodes(models.Model):
     desc = models.TextField(max_length=6000)
     left = models.TextField(max_length=500)
     right = models.TextField(max_length=500)
+    trackId = models.CharField(max_length=500, null=True, blank=True)
+    hasTrack = models.BooleanField(default=False)
     tags = ArrayField(models.CharField(max_length=500), null=True, blank=True)
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
+    isTopic = models.BooleanField(default=True)
 
     def __str__(self):
         return f"{self.root.title} : {self.title}"
@@ -73,7 +76,7 @@ class Resources(models.Model):
     desc = models.TextField(max_length=6000)
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
-    tags = ArrayField(models.CharField(max_length=500, null=True), null=True)
+    tags = ArrayField(models.CharField(max_length=500, null=True), null=True, blank=True)
 
     def __str__(self):
         return self.title

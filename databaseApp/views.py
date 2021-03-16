@@ -98,9 +98,22 @@ class NewNode(View):
         desc = request.POST.get('desc')
         left = selfId+'l'
         right = selfId+'r'
-        node = models.TrackNodes.objects.create(
-            selfId=selfId, root=root, title=title, desc=desc, left=left, right=right)
-        node.save()
+        if request.POST.get('isTopic')=='on':
+            isTopic=True
+        else:
+            isTopic=False
+        
+        # print(request.POST.get('track'), '')
+        if request.POST.get('trackId'):
+            node = models.TrackNodes.objects.create(
+            selfId=selfId, root=root, title=title, desc=desc, left=left, right=right, hasTrack=True, trackId=request.POST.get('trackId'), isTopic=isTopic)
+            node.save()
+        else:
+            node = models.TrackNodes.objects.create(
+            selfId=selfId, root=root, title=title, desc=desc, left=left, right=right, hasTrack=False, isTopic=isTopic)
+            node.save()
+        
+       
 
         if len(models.TrackNodes.objects.filter(root__selfId=request.session['newTrackId'])) == 1:
 

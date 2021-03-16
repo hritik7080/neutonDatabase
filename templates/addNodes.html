@@ -30,7 +30,11 @@
             <option value={{node.selfId}}>{{node.title}}</option>
           {% endfor %}
         </optgroup>
-      </select>
+      </select><br>
+      <label for='isTopic'>isTopic</label>
+      <input type='checkbox' name='isTopic' id='isTopic'>
+
+      <input type='text' name='trackId' placeholder='trackId'>
 
       <input type="submit" value="submit" />
     </form>
