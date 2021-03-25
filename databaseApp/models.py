@@ -66,8 +66,8 @@ class Resources(models.Model):
     avatar = models.CharField(max_length=100)# choice
     username = models.CharField(max_length=500)
     poster = models.ImageField(upload_to='resourcesImages/')
-#     course = models.ForeignKey(TrackRoots, on_delete=models.CASCADE)
-    course = models.CharField(max_length=100)
+    course = models.ForeignKey(TrackRoots, on_delete=models.CASCADE)
+#     course = models.CharField(max_length=100)
     link = models.TextField(max_length=6000)
     price = models.CharField(max_length=50)
     type = models.CharField(max_length=500, null=True, blank=True)
