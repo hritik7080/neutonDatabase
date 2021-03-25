@@ -82,7 +82,10 @@ class NewNode(View):
 
     def post(self, request, *args, **kwargs):
         _id = request.session['newTrackId']
+        globals()
         selfId = _id+str(random.randint(100, 9999))
+        while selfId in allNodes:
+            selfId = _id+str(random.randint(100, 9999))
         root = models.TrackRoots.objects.get(selfId=_id)
         print("=====================", request.POST['parent'])
         parent = models.TrackNodes.objects.filter(
