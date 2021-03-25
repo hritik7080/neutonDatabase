@@ -452,8 +452,13 @@ class ResourcesView(APIView):
     def post(self, request, *args, **kwargs):
         # if not isAuthenticated(request.POST.get('token')):
         #     return Response({'result': 'Sorry, you are not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
-        track = models.TrackRoots.objects.get(
-            selfId=request.POST.get('course'))
+        globals()
+        if request.POST.get('course') in allRoots:
+            track = models.TrackRoots.objects.get(
+                selfId=request.POST.get('course'))
+        else:
+            track = models.TrackNodes.objects.get(
+                selfId=request.POST.get('course'))
         obj = models.Resources(
             avatar=request.POST.get('avatar'),
             username=request.POST.get('username'),
