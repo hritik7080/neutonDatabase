@@ -449,8 +449,10 @@ class ResourcesView(APIView):
     def post(self, request, *args, **kwargs):
         # if not isAuthenticated(request.POST.get('token')):
         #     return Response({'result': 'Sorry, you are not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
-        track = models.TrackRoots.objects.get(
-            selfId=request.POST.get('course'))
+        
+        # track = models.TrackRoots.objects.get(
+        #     selfId=request.POST.get('course'))
+        track = request.POST.get('course')
         obj = models.Resources(
             avatar=request.POST.get('avatar'),
             username=request.POST.get('username'),
@@ -474,7 +476,7 @@ class ResourcesView(APIView):
         if request.GET.get('id'):
             print("in id")
             objs = models.Resources.objects.filter(
-                course__selfId=request.GET.get('id'))
+                course=request.GET.get('id'))
             ouptput = []
             for i in objs:
                 ouptput.append(serializers.ResourcesSerializer(i).data)
