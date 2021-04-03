@@ -88,10 +88,14 @@ class Feedbacks(models.Model):
     suggestedTrack = models.CharField(max_length=1000, null=True)
     feedback = models.TextField(max_length=6000)
 
+    def __str__(self):
+        self.emailOrPhone
+
 
 class UserDetails(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     profession = models.CharField(max_length=100)
+    mobile = models.CharField(max_length=50, blank=True, null=True)
 
     def __str__(self):
         return self.user.username
