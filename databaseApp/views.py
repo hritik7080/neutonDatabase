@@ -216,9 +216,9 @@ def get1():
     # node = {'ML970': [{'id': "ML970"}]}
     # internals = {'ML970': []}
     track = {}
-    mappings = models.Mappings.objects.filter(root__selfId='ML970')
+    mappings = models.Mappings.objects.filter(root__selfId='Ml7489990')
     nodes = models.TrackNodes.objects.filter(
-        root=models.TrackRoots.objects.get(selfId='ML970'))
+        root=models.TrackRoots.objects.get(selfId='Ml7489990'))
 
     l1 = list(map(getMappingL1, mappings))
     l2 = list(map(getMappingL2, mappings))
@@ -228,7 +228,7 @@ def get1():
     # return maps
 
     parents = []
-    parent = 'ML970l'
+    parent = 'Ml7489990l'
     parents.append(parent)
     child = maps[parent]
     c = 0
@@ -265,7 +265,7 @@ def get1():
         #     break
         # else:
         _next = maps[child]
-        if _next == 'ML970r':
+        if _next == 'Ml7489990r':
             break
 
         if child[-1] == _next[-1] == 'l':
@@ -287,7 +287,7 @@ def get1():
 
         # print(track)
 
-    return track['ML970']
+    return track['Ml7489990']
 
 
 def getPreqs():
@@ -411,6 +411,11 @@ class GetTrack(APIView):
                 #     break
                 # else:
                 _next = maps[child]
+                print(parent, child)
+
+                if parent[:-1] == child[:-1]:
+                    break
+
                 if _next == rootId+'r':
                     break
 
