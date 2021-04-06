@@ -13,6 +13,9 @@ class TrackRoots(models.Model):
     tags = ArrayField(models.CharField(max_length=500), null=True, blank=True)
     juniors = ArrayField(models.CharField(
         max_length=500), null=True, blank=True)
+    trackId = models.CharField(max_length=500, null=True, blank=True)
+    hasTrack = models.BooleanField(default=False)
+    isTopic = models.BooleanField(default=True)
     seniors = ArrayField(models.CharField(
         max_length=500), null=True, blank=True)
     views = models.IntegerField(default=0)
