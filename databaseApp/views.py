@@ -2,7 +2,6 @@ from django.conf import settings
 from django.shortcuts import render, redirect
 from django.views.generic import View
 import random
-
 import jwt
 from databaseApp import models, serializers
 from rest_framework.views import APIView
@@ -39,8 +38,12 @@ def getSelfId(obj):
 
 
 def getRoots(id):
+    if models.TrackRoots.objects.filter(selfId=id).exists():
+        return serializers.RootSerializer(models.TrackRoots.objects.get(selfId=id)).data
 
-    return serializers.RootSerializer(models.TrackRoots.objects.get(selfId=id)).data
+def getNodes(id):
+    if models.TrackNodes.objects.filter(selfId=id).exists():
+        return serializers.NodeSerializer(models.TrackNodes.objects.get(selfId=id)).data
 
 
 def globals():
@@ -445,10 +448,20 @@ class GetTrack(APIView):
             root = models.TrackRoots.objects.get(selfId=rootId)
             if root.juniors:
                 juniors = list(map(getRoots, root.juniors))
-                output['juniors'] = juniors
+                output['juniors'] = list(filter(None.__ne__, juniors))
             if root.seniors:
                 seniors = list(map(getRoots, root.seniors))
-                output['seniors'] = seniors
+                output['seniors'] = list(filter(None.__ne__, seniors))
+        
+        else:
+            root = models.TrackNodes.objects.get(selfId=rootId)
+            if root.juniors:
+                juniors = list(map(getNodes, root.juniors))
+                output['juniors'] = list(filter(None.__ne__, juniors))
+            if root.seniors:
+                seniors = list(map(getNodes, root.seniors))
+                output['seniors'] = list(filter(None.__ne__, seniors))
+
 
         return JsonResponse(output, safe=False)
 
