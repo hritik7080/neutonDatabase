@@ -17,3 +17,8 @@ class ResourcesSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Resources
         fields='__all__'
+    
+class AdditionalUserDetailsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.AdditionalUserDetails
+        fields='__all__'

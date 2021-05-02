@@ -102,3 +102,18 @@ class UserDetails(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class AdditionalUserDetails(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    profile_pic = models.ImageField(upload_to='profilePics/')
+    summary = models.TextField(max_length=10000, null=True, blank=True)
+    phone = models.CharField(max_length=100, null=True, blank=True)
+    location = models.CharField(max_length=10000, null=True, blank=True)
+    website = models.CharField(max_length=10000, null=True, blank=True)
+    youtube = models.CharField(max_length=10000, null=True, blank=True)
+    telegram = models.CharField(max_length=100, null=True, blank=True)
+    discord = models.CharField(max_length=1000, null=True, blank=True)
+
+    def __str__(self):
+        return self.user.username
+

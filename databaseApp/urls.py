@@ -15,5 +15,6 @@ urlpatterns = [
     path('checkEmail/', views.EmailCheck.as_view(), name='email-check'),
     path('checkUsername/', views.UsernameCheck.as_view(), name='username-check'),
     path('searchTrack/', views.SearchTrack.as_view(), name='search-track'),
-    path('searchResource/', views.SearchResource.as_view(), name='search-track')
+    path('searchResource/', views.SearchResource.as_view(), name='search-track'),
+    path('userDetails/', views.AdditionalUserDetailsView.as_view(), name='additional-user-details')
 ]

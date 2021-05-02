@@ -614,3 +614,34 @@ class SearchResource(APIView):
         if output:
             return Response(output, status=status.HTTP_200_OK)
         return Response({'result': 'Not Found'}, status=status.HTTP_404_NOT_FOUND)
+
+
+class AdditionalUserDetailsView(APIView):
+    def post(self, request, *args, **kwargs):
+        if isAuthenticated(request.POST.get('token')):
+            # return Response({'result': 'Sorry, you are not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
+            username = jwt.decode(request.POST.get('token'), settings.JWT_SECRET_KEY)['username']
+            user = User.objects.get(username=username)
+            obj = models.AdditionalUserDetails.objects.create(user=user,
+                                                                profile_pic=request.FILES.get('profile-pic'),
+                                                                summary=request.POST.get('summary'),
+                                                                phone=request.POST.get('phone'),
+                                                                location=request.POST.get('location'),
+                                                                website=request.POST.get('website'),
+                                                                youtube=request.POST.get('youtube'),
+                                                                telegram=request.POST.get('telegram'),
+                                                                discord=request.POST.get('discord'))
+            
+            obj.save()
+            return Response({'result': 'Created'}, status=status.HTTP_200_OK)
+        return Response({"result": 'Unautherized Access'}, status=status.HTTP_401_UNAUTHORIZED)
+
+    def get(self, request, *args, **kwargs):
+        if isAuthenticated(request.POST.get('token')):
+            username = jwt.decode(request.POST.get('token'), settings.JWT_SECRET_KEY)['username']
+            obj = models.AdditionalUserDetails.objects.get(user=User.objects.get(username=username))
+
+            data = dict(serializers.AdditionalUserDetailsSerializer(obj).data)
+            return Response(data, status=status.HTTP_200_OK)
+        return Response({"result": 'Unautherized Access'}, status=status.HTTP_401_UNAUTHORIZED)
+            
