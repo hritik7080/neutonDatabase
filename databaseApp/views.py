@@ -41,6 +41,7 @@ def getRoots(id):
     if models.TrackRoots.objects.filter(selfId=id).exists():
         return serializers.RootSerializer(models.TrackRoots.objects.get(selfId=id)).data
 
+
 def getNodes(id):
     if models.TrackNodes.objects.filter(selfId=id).exists():
         return serializers.NodeSerializer(models.TrackNodes.objects.get(selfId=id)).data
@@ -104,22 +105,20 @@ class NewNode(View):
         desc = request.POST.get('desc')
         left = selfId+'l'
         right = selfId+'r'
-        if request.POST.get('isTopic')=='on':
-            isTopic=True
+        if request.POST.get('isTopic') == 'on':
+            isTopic = True
         else:
-            isTopic=False
-        
+            isTopic = False
+
         # print(request.POST.get('track'), '')
         if request.POST.get('trackId'):
             node = models.TrackNodes.objects.create(
-            selfId=selfId, root=root, title=title, desc=desc, left=left, right=right, hasTrack=True, trackId=request.POST.get('trackId'), isTopic=isTopic)
+                selfId=selfId, root=root, title=title, desc=desc, left=left, right=right, hasTrack=True, trackId=request.POST.get('trackId'), isTopic=isTopic)
             node.save()
         else:
             node = models.TrackNodes.objects.create(
-            selfId=selfId, root=root, title=title, desc=desc, left=left, right=right, hasTrack=False, isTopic=isTopic)
+                selfId=selfId, root=root, title=title, desc=desc, left=left, right=right, hasTrack=False, isTopic=isTopic)
             node.save()
-        
-       
 
         if len(models.TrackNodes.objects.filter(root__selfId=request.session['newTrackId'])) == 1:
 
@@ -352,6 +351,7 @@ class GetTrack(APIView):
         rootId = request.GET['id']
         track = {}
         print(rootId, "========================================")
+        print(request.user)
         if rootId in allRoots:
             obj = models.TrackRoots.objects.get(selfId=rootId)
             obj.views += 1
@@ -360,9 +360,9 @@ class GetTrack(APIView):
             mappings = models.Mappings.objects.filter(root__selfId=rootId)
         else:
             node = models.TrackNodes.objects.get(selfId=rootId)
-            node.views +=1
+            node.views += 1
             node.save()
-            
+
             mappings = models.Mappings.objects.filter(
                 root__selfId=node.root.selfId)
         # nodes = models.TrackNodes.objects.filter(
@@ -452,7 +452,7 @@ class GetTrack(APIView):
             if root.seniors:
                 seniors = list(map(getRoots, root.seniors))
                 output['seniors'] = list(filter(None.__ne__, seniors))
-        
+
         else:
             root = models.TrackNodes.objects.get(selfId=rootId)
             if root.juniors:
@@ -462,7 +462,6 @@ class GetTrack(APIView):
                 seniors = list(map(getNodes, root.seniors))
                 output['seniors'] = list(filter(None.__ne__, seniors))
 
-
         return JsonResponse(output, safe=False)
 
 
@@ -470,7 +469,7 @@ class ResourcesView(APIView):
     def post(self, request, *args, **kwargs):
         # if not isAuthenticated(request.POST.get('token')):
         #     return Response({'result': 'Sorry, you are not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
-        
+
         # track = models.TrackRoots.objects.get(
         #     selfId=request.POST.get('course'))
         track = request.POST.get('course')
@@ -559,6 +558,7 @@ class ResourceActions(APIView):
         #     return Response({'result': 'Sorry, you are not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
 
         resource = models.Resources.objects.get(id=request.GET['id'])
+        print("reslouces")
         if request.GET['action'] == 'like':
             resource.likes += 1
             resource.save()
@@ -633,28 +633,54 @@ class AdditionalUserDetailsView(APIView):
     def post(self, request, *args, **kwargs):
         if isAuthenticated(request.POST.get('token')):
             # return Response({'result': 'Sorry, you are not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
-            username = jwt.decode(request.POST.get('token'), settings.JWT_SECRET_KEY)['username']
+            username = jwt.decode(request.POST.get(
+                'token'), settings.JWT_SECRET_KEY)['username']
+
             user = User.objects.get(username=username)
             obj = models.AdditionalUserDetails.objects.create(user=user,
-                                                                profile_pic=request.FILES.get('profile-pic'),
-                                                                summary=request.POST.get('summary'),
-                                                                phone=request.POST.get('phone'),
-                                                                location=request.POST.get('location'),
-                                                                website=request.POST.get('website'),
-                                                                youtube=request.POST.get('youtube'),
-                                                                telegram=request.POST.get('telegram'),
-                                                                discord=request.POST.get('discord'))
-            
+                                                              profile_pic=request.FILES.get(
+                                                                  'profile-pic'),
+                                                              summary=request.POST.get(
+                                                                  'summary'),
+                                                              phone=request.POST.get(
+                                                                  'phone'),
+                                                              location=request.POST.get(
+                                                                  'location'),
+                                                              website=request.POST.get(
+                                                                  'website'),
+                                                              youtube=request.POST.get(
+                                                                  'youtube'),
+                                                              telegram=request.POST.get(
+                                                                  'telegram'),
+                                                              discord=request.POST.get('discord'))
+
             obj.save()
             return Response({'result': 'Created'}, status=status.HTTP_200_OK)
-        return Response({"result": 'Unautherized Access'}, status=status.HTTP_401_UNAUTHORIZED)
+        return Response({"result": 'Unauthorized Access'}, status=status.HTTP_401_UNAUTHORIZED)
 
     def get(self, request, *args, **kwargs):
-        if isAuthenticated(request.POST.get('token')):
-            username = jwt.decode(request.POST.get('token'), settings.JWT_SECRET_KEY)['username']
-            obj = models.AdditionalUserDetails.objects.get(user=User.objects.get(username=username))
+        if request.GET.get('token'):
+            if isAuthenticated(request.GET.get('token')):
+                getUsername = request.GET['username']
+                username = jwt.decode(request.GET.get(
+                    'token'), settings.JWT_SECRET_KEY)['username']
+                print(username, getUsername)
+                obj = models.AdditionalUserDetails.objects.get(
+                    user__username=username)
 
+                data = dict(
+                    serializers.AdditionalUserDetailsSerializer(obj).data)
+                if username == getUsername:
+                    data['editable'] = True
+                else:
+                    data['editable'] = False
+                return Response(data, status=status.HTTP_200_OK)
+            return Response({"result": 'Unautherized Access'}, status=status.HTTP_401_UNAUTHORIZED)
+        else:
+            username = request.GET.get('username')
+            print(username, 'idhar')
+            obj = models.AdditionalUserDetails.objects.get(
+                user__username=username)
             data = dict(serializers.AdditionalUserDetailsSerializer(obj).data)
+            data['editable'] = False
             return Response(data, status=status.HTTP_200_OK)
-        return Response({"result": 'Unautherized Access'}, status=status.HTTP_401_UNAUTHORIZED)
-            

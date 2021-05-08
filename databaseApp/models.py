@@ -42,6 +42,7 @@ class TrackNodes(models.Model):
         max_length=500), null=True, blank=True)
     seniors = ArrayField(models.CharField(
         max_length=500), null=True, blank=True)
+
     def __str__(self):
         return f"{self.root.title} : {self.title}"
 
@@ -69,7 +70,7 @@ class Mappings(models.Model):
 
 
 class Resources(models.Model):
-    avatar = models.CharField(max_length=100)# choice
+    avatar = models.CharField(max_length=100)  # choice
     username = models.CharField(max_length=500)
     poster = models.ImageField(upload_to='resourcesImages/')
     #course = models.ForeignKey(TrackRoots, on_delete=models.CASCADE)
@@ -83,7 +84,8 @@ class Resources(models.Model):
     desc = models.TextField(max_length=6000)
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
-    tags = ArrayField(models.CharField(max_length=500, null=True), null=True, blank=True)
+    tags = ArrayField(models.CharField(
+        max_length=500, null=True), null=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -106,6 +108,7 @@ class UserDetails(models.Model):
     def __str__(self):
         return self.user.username
 
+
 class AdditionalUserDetails(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     profile_pic = models.ImageField(upload_to='profilePics/')
@@ -119,4 +122,3 @@ class AdditionalUserDetails(models.Model):
 
     def __str__(self):
         return self.user.username
-
