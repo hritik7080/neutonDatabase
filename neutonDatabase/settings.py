@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
-#import django_heroku
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -89,32 +89,32 @@ WSGI_APPLICATION = 'neutonDatabase.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
-
     'default': {
-
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-        'NAME': 'neuton',
-
-        'USER': 'neuton',
-
-        'PASSWORD': 'pV051KCeFYwOcCgljVc7',
-
-        'HOST': 'database-2.crbemolin1h2.us-east-2.rds.amazonaws.com',
-
-        'PORT': '5432',
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-
 }
+
+# DATABASES = {
+
+#     'default': {
+
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+#         'NAME': 'neuton',
+
+#         'USER': 'neuton',
+
+#         'PASSWORD': 'pV051KCeFYwOcCgljVc7',
+
+#         'HOST': 'database-2.crbemolin1h2.us-east-2.rds.amazonaws.com',
+
+#         'PORT': '5432',
+
+#     }
+
+# }
 
 
 REST_FRAMEWORK = {
@@ -123,8 +123,8 @@ REST_FRAMEWORK = {
     )
 }
 
-# db_from_env = dj_database_url.config()
-# DATABASES['default'].update(db_from_env)
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -160,7 +160,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-
 # JWT
 JWT_SECRET_KEY = "JWT_SECRET_KEYJWT_SECRET_KEYJWT_SECRET_KEYJWT_SECRET_KEYJWT_SECRET_KEYJWT_SECRET_KEYJWT_SECRET_KEY"
 
@@ -171,12 +170,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'frontend/static'),
     os.path.join(BASE_DIR, 'frontend')
-    
-    
-    
+
+
+
 ]
 
-STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -188,4 +187,4 @@ REST_FRAMEWORK = {
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-#django_heroku.settings(locals())
+django_heroku.settings(locals())
