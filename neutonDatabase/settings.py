@@ -96,26 +96,6 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-
-#     'default': {
-
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-#         'NAME': 'neuton',
-
-#         'USER': 'neuton',
-
-#         'PASSWORD': 'pV051KCeFYwOcCgljVc7',
-
-#         'HOST': 'database-2.crbemolin1h2.us-east-2.rds.amazonaws.com',
-
-#         'PORT': '5432',
-
-#     }
-
-# }
-
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
