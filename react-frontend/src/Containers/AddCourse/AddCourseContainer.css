@@ -1,0 +1,125 @@
+.acc-main{
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.acc-main form{
+    width: 100%;
+    padding: 0px 20px 20px 20px;
+    display: flex;
+    color: black;
+    align-items: center;
+    border-radius: 15px;
+    background: white;
+    flex-direction: column;
+}
+
+.acc-main form > input{
+    width: 100%;
+    height: 48px;
+    color: black;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background: transparent;
+    border: 2px solid lightgray;
+}
+.acc-main form > input:focus{
+    background-color: rgb(0, 140, 50, 0.05);
+    border-color: rgba(0, 140, 49, 0.25);
+}
+.acc-main form > textarea{
+    width: 100%;
+    resize: none;
+    padding: 10px;
+    min-height: 200px;
+    color: black;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background: transparent;
+    border: 2px solid lightgray;
+}
+.acc-main form > textarea:focus{
+    background-color: rgb(0, 140, 50, 0.05);
+    border-color: rgba(0, 140, 49, 0.25);
+}
+
+.acc-avatar-box{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.acc-avatar-row{
+    width: 100%;
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.acc-avatar-row img{
+    border-radius: 50%;
+}
+
+.acc-avatar-active{
+    border: 3px solid rgb(0, 140, 50);
+}
+
+.acc-img-box{
+    width: 100%;
+    min-height: 48px;
+    display: flex;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    flex-direction: column;
+    border: 2px solid lightgray;
+}
+.acc-img-box input[type=file]{
+    display: none;
+}
+.acc-img-box img{
+    width: 100%;
+}
+.acc-img-box span{
+    width: 100%;
+    height: 48px;
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+    color: rgb(119, 119, 119);
+}
+.acc-dropdown{
+    width: 100%;
+    height: 48px;
+    padding-left: 10px;
+    color: gray;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 2px solid lightgrey;
+}
+.acc-btns{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.acc-cancel-btn{
+    width: 35%;
+    height: 48px;
+    color: rgba(140, 0, 0, 0.5);
+    border-radius: 10px;
+    background: transparent;
+    border: 2px solid rgba(140, 0, 0, 0.25);
+}
+.acc-submit-btn{
+    width: 62%;
+    height: 48px;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    background: rgb(0, 140, 50);
+}

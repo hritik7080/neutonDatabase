@@ -1,0 +1,107 @@
+.tc-main{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.tc-past{
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+.tc-present{
+    width: 100%;
+    padding: 20px;
+    position: relative;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: black;
+    background-color: white;
+}
+.tc-present-head{
+    display: flex;
+}
+.tc-present-head-title{
+    margin: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+    margin-right: 35px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    letter-spacing: 0.5px;
+}
+.tc-present-head-btns{
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+.tc-present-body{
+    width: 100%;
+    margin-top: 0.5rem;
+    align-items: center;
+}
+.tc-present-detail p{
+    margin: 0;
+    font-size: 14px;
+    color: black;
+}
+.tc-button-box{
+    display: flex;
+    /* margin-top: 1rem; */
+    align-items: center;
+    justify-content: space-between;
+}
+.tc-button-box button{
+    height: 100%;
+    width: 100px;
+    height: 32px;
+    font-size: 12px;
+    border-radius: 25px;
+    background: transparent;
+    color: black;
+    border: 1px solid rgb(100, 100, 100);
+}
+.tc-button-box button:hover{
+    color: rgb(0, 140, 50);
+    border: 1px solid rgb(0, 140, 50);
+}
+.tc-button-box button:disabled{
+    opacity: 0;
+}
+.tc-button-box span{
+    font-size: 15px;
+    color: grey;
+}
+/* tc-past-btn */
+.tc-child{
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+.tc-at{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    background: white;
+    border-radius: 10px;
+    justify-content: center;
+    color: rgb(30, 90, 180);
+}
+.tc-at:hover{
+    cursor: pointer;
+    color: rgb(30, 90, 255);
+}
+.tc-future{
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 600px) {
+    .tc-end{
+        display: none;
+    }
+}

@@ -1,0 +1,89 @@
+@keyframes shakeposter{
+    74%{
+        transform: rotate(0deg);
+    }
+    75%{
+        transform: rotate(1deg);
+    }
+    80%{
+        transform: rotate(-1deg);
+    }
+    85%{
+        transform: rotate(1deg);
+    }
+    90%{
+        transform: rotate(-1deg);
+    }
+}
+.tpc-box{
+    width: 100%;
+    padding: 1rem;
+    position: relative;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    animation: shakeposter 3s ease-in-out;
+    background:  rgba(0, 140, 49, 0.2);
+}
+.tpc-head{
+    width: 100%;
+    display: flex;
+    /* background-color: blue; */
+}
+.tpc-head-left{
+    flex: 1 1 auto;
+}
+.tpc-head-left h2{
+    margin: 0;
+}
+.tpc-head-left p{
+    margin: 0;
+}
+.tpc-head-right{
+    padding: 1rem 4rem 0 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    /* background-color: blue; */
+}
+.tpc-body{
+    pointer-events: none;
+}
+.tpc-btn-box{
+    display: flex;
+    margin-top: 1rem;
+    align-items: center;
+}
+.tpc-btn-box button{
+    border: none;
+    height: 30px;
+    color: black;
+    font-size: 12px;
+    min-width: 100px;
+    margin-right: 1rem;
+    border-radius: 25px;
+    background: white;
+}
+.tpc-btn-box p{
+    margin: 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+.tpc-btn{
+    top: 1rem;
+    right: 1rem;
+    border: none;
+    display: flex;
+    padding: 0.25rem;
+    border-radius: 50%;
+    position: absolute;
+    transition: 0.15s;
+    background: rgba(0, 0, 0, 0.05);
+}
+.tpc-btn:hover{
+    background: tomato;
+}
+@media screen and (max-width: 700px) {
+    .tpc-head-right{
+        padding: 1rem 2rem 0 0;
+    }
+}

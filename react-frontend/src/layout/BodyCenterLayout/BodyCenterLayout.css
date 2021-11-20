@@ -1,0 +1,10 @@
+.body-center-layout{
+    width: 45vw;
+    height: auto;
+}
+@media screen and (max-width: 700px) {
+    .body-center-layout{
+        margin-top: 10px;
+        width: 100%;
+    }
+}

@@ -1,0 +1,32 @@
+.body-head{
+    width: 100%;
+    margin-bottom: 10px;
+    
+    display: flex;
+    justify-content: space-between;
+}
+.body-head  button{
+    border: none;
+    padding: 1rem;
+    background: white;
+    border-radius: 1.5rem;
+}
+.body-head span{
+    padding: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: white;
+    border-radius: 0.5rem;
+
+    display: flex;
+    align-items: center;
+}
+.addvertise{
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    background: white;
+
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,68 @@
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        border-color: transparent;
+        transform: translateY(40px);
+    }
+    65%{
+        border-color: transparent;
+    }
+    95%{
+        border-color: lightgray;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pastbar-main{
+    width: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-left: 1px solid gray;
+    animation: slide-up 0.3s ease;
+}
+.pastbar-box{
+    width: 99%;
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: white;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 7px 25px 25px 7px;
+}
+.pastbar-box-active{
+    width: 99%;
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: white;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 7px;
+}
+.pastbar-head{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+}
+.pastbar-head span{
+    width: 0; 
+    height: 0;
+    left: -5px;
+    position: absolute;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent; 
+    border-right: 10px solid white;
+}

@@ -1,0 +1,83 @@
+.tbc-main{
+    width: 100%;
+    padding: 20px;
+    padding-top: 15px;
+    position: relative;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: black;
+    background-color: white;
+}
+.tbc-head{
+    display: flex;
+    align-items: center;
+    /* background: blue; */
+}
+.tbc-head-title{
+    margin: 0;
+    flex: 1 1 auto;
+    margin-right: 0.5rem;
+    /* overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; */
+    letter-spacing: 0.5px;
+}
+.tbc-head-btns{
+    height: 100%;
+    /* background: blue; */
+    display: flex;
+    align-items: flex-start;
+}
+.tbc-body{
+    width: 100%;
+    margin-top: 0.5rem;
+    align-items: center;
+}
+.tbc-detail p{
+    margin: 0;
+    font-size: 14px;
+    color: black;
+}
+.tbc-approve{
+    flex: 1 1 auto;
+    display: flex;
+    width: max-content;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+.tbc-approve p{
+    margin: 0;
+    color: #666;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-right: 0.5rem;
+}
+.tbc-button-box{
+    display: flex;
+    padding-top: 0.5rem;
+    align-items: center;
+    justify-content: flex-end;
+}
+.tbc-button-box span{
+    flex: 1 1 auto;
+    color: grey;
+    font-size: 15px;
+}
+
+.tbc-button-box button{
+    height: 100%;
+    width: 100px;
+    height: 30px;
+    font-size: 12px;
+    margin-left: 0.5rem;
+    border-radius: 25px;
+    background: transparent;
+    color: black;
+    border: 1px solid rgb(100, 100, 100);
+}
+.tbc-button-box button:hover{
+    background: whitesmoke;
+    color: rgb(0, 140, 50);
+    border: 1px solid rgb(0, 140, 50);
+}

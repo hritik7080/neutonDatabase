@@ -1,0 +1,142 @@
+.header-box {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 0 20px 0 50px;
+  box-shadow: 1px 10px 20px 5px #00000010;
+}
+.header-box-1 p {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  color: rgb(0, 140, 50);
+  /* background: linear-gradient(to right,rgb(0, 140, 50), rgb(206, 206, 206));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text; */
+}
+.header-box-2{
+  display: flex;
+  justify-content: flex-end;
+}
+.hb-link-list > li {
+  margin: 0;
+  color:black;
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+.hb-link-list > li:hover{
+  background-color: whitesmoke;
+}
+.header-box-3{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 30px;
+}
+.header-box-3 > div{
+  padding-left: 30px;
+}
+
+/* The dark/light toggler */
+.hb-switch{
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 80px;
+  height: 30px;
+}
+
+/* Hide default HTML checkbox */
+.hb-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.hb-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid darkgray;
+  background: transparent;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.hb-slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.hb-slider-text{
+  width: 100%;
+  padding-right: 10px;
+  font-size: 14px;
+  display: flex;
+  color: lightgray;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.hb-switch input:checked + .hb-slider {
+  background-color: #2196f3;
+}
+
+.hb-switch input:focus + .hb-slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+.hb-switch input:checked + .hb-slider:before {
+  -webkit-transform: translateX(50px);
+  -ms-transform: translateX(50px);
+  transform: translateX(50px);
+}
+
+/* Rounded sliders */
+.hb-slider.hb-round {
+  border-radius: 30px;
+}
+
+.hb-slider.hb-round:before {
+  border-radius: 50%;
+}
+
+.hb-search_categories{
+  height: 30px;
+  padding: 0px 10px;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  border: none;
+  background-color: rgba(47, 47, 47, 1);
+}
+
+@media screen and (max-width: 850px) {
+  .header-box {
+    padding: 0px;
+    align-items: center;
+    justify-content: center;
+  }
+  .header-box-2{
+    display: none;
+  }
+}

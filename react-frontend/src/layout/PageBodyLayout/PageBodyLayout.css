@@ -1,0 +1,20 @@
+.page-body-layout{
+    width: 75vw;
+    height: auto;
+    display: flex;
+    margin-left: 25vw;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+}
+@media screen and (max-width: 700px) {
+    .page-body-layout{
+        width: 100%;
+        margin-left: 0;
+        justify-content: flex-end;
+        flex-direction: column;
+    }
+    .column-reverse{
+        flex-direction: column-reverse;
+    }
+}

@@ -1,0 +1,32 @@
+.track-bar-detail{
+    width: 100%;
+    margin-bottom: 14px;
+}
+.track-bar-detail p:first-child{
+    color: grey;
+    font-size: 0.85rem;
+    margin-top: 0;
+}
+.track-bar-detail-btn{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.track-bar-detail-info{
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.track-bar-detail-btn button{
+    height: 32px;
+    font-size: 12px;
+    margin-left: 10px;
+    border-radius: 15px;
+    padding: 0px 15px 0px 15px;
+    background: transparent;
+    border: 1px solid grey;
+}

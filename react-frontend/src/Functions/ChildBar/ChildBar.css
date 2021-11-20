@@ -1,0 +1,60 @@
+.tcb-child-box{
+    width: 100%;
+}
+.tcb-child-top{
+    width: 98%;
+    float: right;
+    padding-top: 10px;
+    border-left: 2px solid gray;
+}
+.tcb-child-main{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    background: white;
+    align-items: center;
+    padding: 0px 10px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.tcb-child-main-1{
+    height: 45%;
+    border-radius: 50%;
+    background-color: black;
+}
+.tcb-close{
+    background: red;
+}
+
+.tcb-child-main-1 img{
+    height: 100%;
+}
+.tcb-child-main-2{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    padding-right: 10px;
+    justify-content: center;
+}
+.tcb-child-main-2 p{
+    margin: 0;
+    flex: 1 1 auto;
+}
+.tcb-child-main-2 button{
+    height: 100%;
+    border: none;
+    border-radius: 15px;
+    margin-left: 5px;
+}
+
+.tcb-child-bottom-true{
+    width: 98%;
+    float: right;
+}
+.tcb-child-bottom-false{
+    width: 98%;
+    float: right;
+    border-left: 2px solid black;
+}

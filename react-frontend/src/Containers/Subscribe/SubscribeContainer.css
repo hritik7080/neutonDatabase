@@ -1,0 +1,179 @@
+.sc-main{
+    padding: 50px;
+    width: 400px;
+    border-radius: 25px;
+    overflow: hidden;
+    background: rgb(255, 255, 255);
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+}
+.sc-box-1{
+    animation: slide-right 0.3s ease;
+}
+.sc-head h2{
+    margin: 0;
+    text-align: center;
+}
+.sc-head p{
+    color: gray;
+    font-size: 15px;
+    text-align: center;
+}
+.sc-body{
+    width: 100%;
+}
+.sc-body form{
+    width: 100%;
+}
+.sc-body input:focus{
+    background: rgba(0, 140, 49, 0.05);
+}
+.sc-body button{
+    width: 100%;
+    height: 50px;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    background: rgb(32, 32, 255);
+}
+.sc-box-1 hr{
+    border: none;
+    margin: 10px 0px;
+}
+ 
+.sc-foot{
+    width: 100%;
+}
+.sc-foot button{
+    width: 100%;
+    height: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    background: rgb(230, 230, 230);
+    color: rgb(80, 80, 80);
+    border: none;
+    /* border: 2px solid rgb(20, 149, 65); */
+
+}
+@keyframes slide-left {
+    0%{
+        opacity: 0;
+        transform: translateX(110%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+@keyframes slide-right {
+    0%{
+        opacity: 0;
+        transform: translateX(-110%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+.sc-box-2{
+    animation: slide-left 0.3s ease;
+}
+
+.sc-box-2-head{
+    display: flex;
+    justify-content: space-between;
+}
+.sc-box-2-head span{
+    width: 32px;
+    height: 32px;
+    opacity: 0.6;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+.sc-box-2-head span:hover{
+    opacity: 1;
+    background: rgb(235, 235, 235);
+}
+.sc-box-2-head h3{
+    margin: 0;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+.sc-box-2-body {
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.sc-box-2-body span{
+    display: flex;
+}
+.sc-box-2-body span > input:nth-child(1){
+    margin-right: 10px;
+}
+.sc-box-2-body input{
+    flex: 1 1 auto;
+    height: 50px;
+    width: 100%;
+    margin-top: 10px;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 2px solid lightgray;
+}
+.sc-box-2-body input:focus{
+    background-color: rgb(0, 140, 50, 0.05);
+    border-color: rgba(0, 140, 49, 0.25);
+}
+.sc-box-2-body p{
+    margin: 0;
+    width: 100%;
+    text-align: right;
+    font-size: 0.8rem;
+    color: red;
+}
+.sc-box-2-body select{
+    margin-top: 10px;
+    height: 50px;
+    color: gray;
+    background: transparent;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 2px solid lightgray;
+}
+.sc-box-2-body select:focus{
+    background-color: rgb(0, 140, 50, 0.05);
+    border-color: rgba(0, 140, 49, 0.25);
+}
+.sc-box-2-body button{
+    height: 50px;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: rgb(32, 32, 255);
+}
+@media screen and (max-width: 850px) {
+
+    .sc-main{
+        width: 100%;
+        padding: 30px;
+        border-radius: 0;
+    }
+    .sc-head h2{
+        font-size: 20px;
+    }
+    .sc-head p{
+        margin: 10px;
+        font-size: 14px;
+    }
+}

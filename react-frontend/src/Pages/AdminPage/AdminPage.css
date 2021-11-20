@@ -1,0 +1,340 @@
+.adp-main{
+    width: 100vw;
+    height: 100vh;
+    padding: 30px;
+    display: flex;
+    position: fixed;
+    overflow-y: auto;
+    flex-direction: column;
+    background-color: grey;
+}
+.adp-header{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.adp-header input{
+    height: 100%;
+    flex: 1 1 auto;
+    padding-left: 10px;
+}
+
+.adp-header button{
+    width: 200px;
+    height: 100%;
+}
+
+.adp-attach{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    margin-bottom: 10px;
+    background: white;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.adp-ct-box{
+    width: 100%;
+    margin-bottom: 10px;
+    background: lightgray;
+}
+.adp-ct-box input{
+    margin-left: 2px;
+    border: none;
+    width: 48%;
+    border-bottom: 3px solid grey;
+}
+.adp-ct-box input:focus{
+    border-color: blue;
+}
+
+.adp-ct-head{
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    /* border-bottom: 1px solid grey; */
+}
+.adp-ct-head span{
+    flex: 1 1 auto;
+}
+.adp-ct-head button{
+    height: 100%;
+    width: 100px;
+    margin-left: 5px;
+}
+.adp-ct-connect{
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+    display: flex;
+}
+.adp-ct-1{
+    flex: auto;
+    position: relative;
+
+}
+.adp-ct-1 input{
+    width: 99%;
+    height: 100%;
+    padding-left: 5px;
+}
+.adp-is-main{
+    width: 100%;
+    position: absolute;
+    border-radius: 2px;
+    background: white;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.212);
+}
+.adp-is-box{
+    border-bottom: 1px solid black;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.adp-is-box span{
+    display: flex;
+}
+.adp-is-box span > p{
+    flex: 1 1 auto;
+    font-size: 14px;
+}
+.adp-is-box p{
+    margin: 5px;
+}
+.adp-ct-name{
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+    display: flex;
+}
+.adp-ct-name input{
+    flex: auto;
+    padding-left: 5px;
+}
+.adp-ct-detail{
+    width: 100%;
+    height: 200px;
+    padding: 5px;
+    display: flex;
+}
+.adp-ct-box textarea{
+    flex: auto;
+    border: none;
+    padding: 5px;
+    border-bottom: 3px solid grey;
+}
+.adp-ct-box textarea:focus{
+    border-color: blue;
+}
+.adp-ct-options{
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+    display: flex;
+}
+.adp-ct-options input{
+    flex: auto;
+    padding-left: 5px;
+}
+.adp-ct-options select{
+    width: 30%;
+    border: none;
+    border-bottom: 3px solid grey;
+}
+.adp-ct-options select:focus{
+    border-color: blue;
+}
+
+.adp-track-submiting{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blue;
+}
+
+.adp-body{
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.adp-sr-box{
+    width: 40%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    overflow-y: auto;
+    background: white;
+}
+.adp-sr-1{
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+.adp-sr-1 h3{
+    margin: 0;
+}
+.adp-sr-1 button{
+    height: 32px;
+    margin-right: 10px;
+}
+.adp-show-box{
+    top: 0;
+    right: 0;
+    width: 59%;
+    height: 100%;
+    padding: 10px;
+    overflow-y: auto;
+    position: absolute;
+    background: lightgray;
+}
+.adp-past-more{
+    width: 100px;
+    height: 50px;
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+    background: grey;
+}
+.adp-track-past{
+    width: 100%;
+    padding-bottom: 1px;
+    border-left: 2px solid black;
+}
+.adp-past-box{
+    position: relative;
+    width: 100%;
+    min-height: 50px;
+    margin-bottom: 10px;
+    background-color: grey;
+    border-radius: 0px 25px 25px 0px;
+}
+.adp-past-con{
+    top: 50%;
+    left: -7px;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    background: black;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+.adp-past-main{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+.adp-past-main p{
+    margin: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.adp-past-main button{
+    height: 100%;
+    border: none;
+    color: white;
+    margin-left: 5px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.adp-track-present{
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    background-color: grey;
+    border-radius: 0px 10px 0px 10px;
+}
+
+.adp-track-child{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.adp-track-future{
+    width: 100%;
+    display: flex;
+    padding-top: 1px;
+    margin-bottom: 10px;
+    align-items: flex-end;
+    flex-direction: column;
+    border-right: 2px solid black;
+}
+.adp-future-box{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    margin-top: 10px;
+    position: relative;
+    align-items: center;
+    flex-direction: row;
+    background-color: gray;
+    border-radius: 25px 0px 0px 25px;
+}
+.adp-future-main{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    position: absolute;
+    align-items: center;
+}
+.adp-future-main p{
+    flex: 1 1 auto;
+}
+.adp-future-main button{
+    height: 100%;
+    border: none;
+    color: white;
+    margin-right: 5px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.25);
+}
+.adp-future-con{
+    top: 50%;
+    right: -7px;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    background: black;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+.adp-future-add{
+    width: 100px;
+    height: 50px;
+    display: flex;
+    margin-top: 10px;
+    background: grey;
+    align-items: center;
+    justify-content: center;
+}
+
+.adp-ct-s{
+    margin: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 2px;
+    background-color: white;
+}
+.adp-ct-s p, .adp-ct-s h4{
+    margin: 0;
+} 
